@@ -5,7 +5,7 @@ Kimmy follows you outside as the school bell rings. The weather is too nice to g
 -> map
 
 === map ===
-{|Where to next?}
+Where to{| next}?
 + {park or town} [Go home] 
 I guess we should go home
 Ok, I was getting tired anyways
@@ -91,14 +91,13 @@ Hi Kimmy, I'm Jimmy.
 = kimmy_park_jimmy 
 Guess she's just shy... I'll get back to my comic then.
 + [Goodbye]
-Bye! see you at school tomorrow
 ->park
 
 == playground
 Kimmy follows you to the top of the playground, the slide looms ominously before you.
-I'm scared Dana.
+I've never been on a slide before
 + [Slide together] ->
-Let's go down together then
+Let's go down together then.
 -> slide_together
 + [Encourage] ->
 you can do it!
@@ -111,16 +110,15 @@ Ok
 -> slide
 
 = slide_alone
-She timidly approaches the slide.
-You can see the fear as she steps onto the slide
+Are you sure?
 + [Slide]
 -> slide
 
 = slide
-The wind rushes through your hair as you go down the slide
+The wind rushes through your hair as you go down the slide.
 {slide_together: Kimmy beams back at you.}
 {slide_alone: Kimmy waits at the bottom of the slide}
-That was fun! I don't want to do it again though...
+That was fun, I don't want to do it again though...
 + [Back to park]
 -> park
 
