@@ -48,14 +48,14 @@ public class PlayerController : MonoBehaviour
 	private Interactable FindClosest(IEnumerable<Collider2D> objects)
 	{
 		GameObject best = null;
-		var closestDistanceSqr = Mathf.Infinity;
+		float closestDistanceSqr = Mathf.Infinity;
 		var position = transform.position;
 		
 		foreach(var potential in objects)
 			if (potential!=gameObject)
 			{
-				var targetVector = potential.transform.position - position;
-				var dSqrToTarget = targetVector.sqrMagnitude;
+				Vector2 targetVector = potential.transform.position - position;
+				float dSqrToTarget = targetVector.sqrMagnitude;
 				if (!(dSqrToTarget < closestDistanceSqr)) continue;
 				
 				closestDistanceSqr = dSqrToTarget;

@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Ink.Runtime;
 using UnityEngine;
 
-public class Loader : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+public class Loader : MonoBehaviour
+{
+	public static Loader i;
+	public TextAsset inkJSONAsset;
 	
-	// Update is called once per frame
-	void Update () {
-		
+	private void Awake ()
+	{
+		if (i != null) i = this;
+		else Destroy(gameObject);
 	}
+
 }
