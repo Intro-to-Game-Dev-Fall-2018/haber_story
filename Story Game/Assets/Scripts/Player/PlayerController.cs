@@ -19,12 +19,7 @@ public class PlayerController : MonoBehaviour
 	
 	private void Update ()
 	{
-		if (Input.GetButtonDown("Select")) Interact();
-	}
-
-	private void FixedUpdate()
-	{
-		
+		if (Input.GetButtonDown("Submit")) Interact();
 		_inputMove = Input.GetAxis("Horizontal");
 		
 		var movementVector = new Vector2(_inputMove * Speed, 0);

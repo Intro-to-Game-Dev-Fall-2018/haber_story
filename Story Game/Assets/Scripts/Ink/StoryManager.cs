@@ -5,45 +5,39 @@ public class StoryManager : MonoBehaviour
 {
     private Story _story;
     [SerializeField] private StoryDisplay _display;
+//    [SerializeField] private Background _background;
+
+    private float lastMove;
 
     private void Start()
     {
         _story = new Story(Loader.i.inkJSONAsset.text);
+        _display.Display(_story.currentText);
+        _display.ButtonClicked.AddListener(MakeChoice);
     }
-
-    void RefreshView()
+    
+    private void Update()
     {
-        // Remove all the UI on screen
-        RemoveChildren();
-
-        // Read all the content until we can't continue any more
-        while (_story.canContinue)
+        if (Input.GetButton("Submit") && Time.time > lastMove+1)
         {
-            // Continue gets the next line of the story
-            string text = _story.Continue();
-
-            // This removes any white space from the text.
-            text = text.Trim();
-
-            // Display the text on screen!
-            //CreateContentView(text);
+            NextStory();
+            lastMove = Time.time;
         }
     }
 
-    public string NextStoryElement()
+    private void MakeChoice(Choice choice)
     {
-        if (_story.canContinue)
-            return _story.Continue();
-        return _story.currentChoices.ToString();
+        _story.ChooseChoiceIndex(choice.index);
+        _display.Display(_story.Continue());
+        print(choice.sourcePath);
     }
 
-    private void Update()
+    private void NextStory()
     {
+        if  (_story.canContinue)
+            _display.Display(_story.Continue());
+        else
+            _display.DisplayOptions(_story.currentChoices);
     }
 
-    private void RemoveChildren()
-    {
-        foreach (Transform child in transform)
-            Destroy(child.gameObject);
-    }
 }

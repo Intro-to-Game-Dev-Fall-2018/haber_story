@@ -1,5 +1,5 @@
 VAR money = 25
-VAR devmode = 0
+VAR devmode = 1
 
 VAR dice = false
 VAR jumprope = false

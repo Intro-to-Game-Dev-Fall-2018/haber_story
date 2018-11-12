@@ -8,7 +8,7 @@ public class Loader : MonoBehaviour
 	
 	private void Awake ()
 	{
-		if (i != null) i = this;
+		if (i == null) i = this;
 		else Destroy(gameObject);
 	}
 
