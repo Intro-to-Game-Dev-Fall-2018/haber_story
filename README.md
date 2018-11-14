@@ -1,4 +1,4 @@
 # haber_story
 
 
-Kimmy: https://itch.io/game/edit/326592
+Kimmy: https://jaminhaber.itch.io/story-game
