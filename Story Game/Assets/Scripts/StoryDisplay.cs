@@ -16,6 +16,7 @@ public class StoryDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _textPrefab;
 	[SerializeField] private Button _buttonPrefab;
 
+	[HideInInspector]
 	public ChoiceMade ButtonClicked;
 
 	private void Awake()

@@ -1,10 +1,13 @@
-﻿using Ink.Runtime;
+﻿using System;
+using Ink.Runtime;
 using UnityEngine;
 
 public class StoryManager : MonoBehaviour
 {
     private Story _story;
-    [SerializeField] private StoryDisplay _display;
+    [SerializeField] private StoryDisplay _storyDisplay;
+    [SerializeField] private CharacterDisplay _characterDisplay;
+    
 //    [SerializeField] private Background _background;
 
     private float lastMove;
@@ -12,32 +15,51 @@ public class StoryManager : MonoBehaviour
     private void Start()
     {
         _story = new Story(Loader.i.inkJSONAsset.text);
-        _display.Display(_story.currentText);
-        _display.ButtonClicked.AddListener(MakeChoice);
+        _storyDisplay.Display(_story.currentText);
+        _storyDisplay.ButtonClicked.AddListener(MakeChoice);
     }
     
     private void Update()
     {
         if (Input.GetButton("Submit") && Time.time > lastMove+.8)
-        {
-            NextStory();
-            lastMove = Time.time;
-        }
+            Next();
     }
 
     private void MakeChoice(Choice choice)
     {
         _story.ChooseChoiceIndex(choice.index);
-        _display.Display(_story.Continue());
-        print(choice.sourcePath);
+        Next();
     }
 
-    private void NextStory()
+    private void Next()
     {
+        lastMove = Time.time;
+        
         if  (_story.canContinue)
-            _display.Display(_story.Continue());
+            NextText();
         else
-            _display.DisplayOptions(_story.currentChoices);
+            NextOptions();
+    }
+
+    private void NextText()
+    {
+        string text = _story.Continue();
+        string name;
+        
+        if (text.Contains(":"))
+        {
+            int i = text.IndexOf(':');
+            name = text.Substring(0, i);
+            text = text.Substring(i+1,text.Length-i-1).Trim();
+            _characterDisplay.Display(name);
+        }
+        
+        _storyDisplay.Display(text);
+    }
+
+    private void NextOptions()
+    {
+        _storyDisplay.DisplayOptions(_story.currentChoices);
     }
 
 }
