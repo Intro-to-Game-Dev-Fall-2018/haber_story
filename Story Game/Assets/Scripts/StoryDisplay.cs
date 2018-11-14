@@ -50,7 +50,7 @@ public class StoryDisplay : MonoBehaviour
 		Button choice = Instantiate (_buttonPrefab,UI.transform);
 		
 		// Gets the text from the button prefab
-		Text choiceText = choice.GetComponentInChildren<Text> ();
+		Text choiceText = choice.GetComponentInChildren<Text>();
 		choiceText.text = text;
 
 		// Make the button expand to fit the text

@@ -18,7 +18,7 @@ public class StoryManager : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetButton("Submit") && Time.time > lastMove+1)
+        if (Input.GetButton("Submit") && Time.time > lastMove+.8)
         {
             NextStory();
             lastMove = Time.time;
