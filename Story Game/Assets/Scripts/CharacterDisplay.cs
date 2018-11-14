@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterDisplay : MonoBehaviour
@@ -18,6 +19,11 @@ public class CharacterDisplay : MonoBehaviour
     public void Display(string name)
     {
         _renderer.sprite = _characters.GetCharacter(name).Sprite;
+    }
+
+    public void NoDisplay()
+    {
+        _renderer.sprite = null;
     }
     
 }

@@ -17,7 +17,19 @@ MonoBehaviour:
   - Name: Kimmy
     Sprite: {fileID: 21300000, guid: c1c0249feba314a66ac9d6d91d784401, type: 3}
   - Name: Mom
-    Sprite: {fileID: 21300000, guid: c1c0249feba314a66ac9d6d91d784401, type: 3}
+    Sprite: {fileID: 21300000, guid: ac076884a4ff741e7aa600fc203088dc, type: 3}
+  - Name: Donna
+    Sprite: {fileID: 21300000, guid: 0a58f1f5d7cc64f048288aefd5fe2391, type: 3}
+  - Name: Jimmy
+    Sprite: {fileID: 21300000, guid: d7b21ba2aca5f4ee8a8d1fd14fa22244, type: 3}
+  - Name: Mrs.Munro
+    Sprite: {fileID: 21300000, guid: 22f63d64feed049aaa72480d09e15412, type: 3}
+  - Name: Anthony
+    Sprite: {fileID: 21300000, guid: f2ab40e9f03864410b6393f29cdc8918, type: 3}
+  - Name: Amber
+    Sprite: {fileID: 21300000, guid: f2a2a0e3a3d1343abbbb249b00e485c1, type: 3}
+  - Name: Dean
+    Sprite: {fileID: 21300000, guid: e6c2fe11569764250bf56773dc116d97, type: 3}
   unknown:
     Name: unknown
     Sprite: {fileID: 0}

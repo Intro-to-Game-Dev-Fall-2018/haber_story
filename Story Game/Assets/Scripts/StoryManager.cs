@@ -37,8 +37,12 @@ public class StoryManager : MonoBehaviour
         
         if  (_story.canContinue)
             NextText();
-        else
+        else if (_story.currentChoices.Count > 0)
             NextOptions();
+        else
+            _story.ResetState();
+            
+        
     }
 
     private void NextText()
@@ -53,6 +57,9 @@ public class StoryManager : MonoBehaviour
             text = text.Substring(i+1,text.Length-i-1).Trim();
             _characterDisplay.Display(name);
         }
+        else
+            _characterDisplay.NoDisplay();
+        
         
         _storyDisplay.Display(text);
     }

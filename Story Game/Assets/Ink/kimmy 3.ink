@@ -52,8 +52,8 @@ Dana:           Her name is Kimmy!
 
 = kimmy_home_1
 + [It seems that Kimmy has something to say.]
--...
-(Kimmy remains silent.)
+-Kimmy:         ...
+Kimmy:          (Kimmy remains silent.)
 * {X} [...] -> Y
 * {not X} [...] -> X
 
@@ -77,26 +77,26 @@ Kimmy:          Ferry Street... I untied myself from the porch so I could go for
 -Kimmy's house is on a quiet street next to a toy store. her harnass is on the porch.
 * [Knock]
 - Kimmy's mother opens the door.
-Kimmy's Mom:            Thank you for finding Kimmy and walking her home. What's your name, dear?
+Mrs.Munro:            Thank you for finding Kimmy and walking her home. What's your name, dear?
 * [I’m Dana…]
 Dana:           I’m Dana…
 * Uhhhhhh
-   Kimmy's Mom:         You do Have a name, don't you?
+   Mrs.Munro:         You do Have a name, don't you?
     ** Dana:            Dana.
-- Kimmy's Mom:          I don’t know many kids as responsible as you, walking Kimmy all the way home. I hope you two can be friends. I know Kimmy could learn a lot from you.
+- Mrs.Munro:          I don’t know many kids as responsible as you, walking Kimmy all the way home. I hope you two can be friends. I know Kimmy could learn a lot from you.
 Kimmy:          My… friend?
 * [Yes!] 
 Dana:            Yes! I’d love to be friends, Kimmy. Can I come by and play with you tomorrow?
--Kimmy's Mom:           I’ve been looking for a babysitter, actually. Her grandma was helping with that before, but she… well, she can’t anymore.
+-Mrs.Munro:           I’ve been looking for a babysitter, actually. Her grandma was helping with that before, but she… well, she can’t anymore.
 * [Yes]
 * [Why?]
-Kimmy's Mom:            Kimmy’s normally alright in her harness on the porch, but she’s getting a little old for that…
+Mrs.Munro:            Kimmy’s normally alright in her harness on the porch, but she’s getting a little old for that…
     ** [Yes]
 -Dana:          Wow! Yes, please! I’d love to!
-Kimmy's Mom:            If you’d like to play with Kimmy tomorrow, I’d be happy to pay you a quarter to keep an eye on her.
+Mrs.Munro:            If you’d like to play with Kimmy tomorrow, I’d be happy to pay you a quarter to keep an eye on her.
 * [I’ll be here.] 
 Dana:            I'll be here first thing! Wow, I didn’t expect to land a job today. Thanks so much! Bye bye Kimmy, and Mrs...?
--Kimmy's Mom:           Mrs. Munro. Again, thank you for giving Kimmy a hand. It was nice meeting you, Dana.
+-Mrs.Munro:           Mrs. Munro. Again, thank you for giving Kimmy a hand. It was nice meeting you, Dana.
 Dana:           Likewise.
 Dana:           Bye bye.
 + [Come back tomorrow ] 
@@ -243,7 +243,7 @@ Dana:           I don’t know about that. Anyways, I was just going to ask if y
 Dana:           Ok... well, I hope you two can get along, since you're neighbors... want to play a game with us?
 -Donna:         Well, I’m trying to avoid Harold so it’s probably good to look busy. He keeps trying to tell me that my ears look childish. He is so snobby.
 Kimmy:          I like your ears.
-Oh, thanks. They’re new. Anyways, I wanna play a new game.
+Donna:          Oh, thanks. They’re new. Anyways, I wanna play a new game.
 -> choice
 
 = friendsuccess
@@ -281,8 +281,8 @@ Jimmy is reading a comic book. Anthony and his sister are hanging out.
 -> map
 
 === jimmy
-Jimmy:...Hi Kimmy.
-Kimmy:Hi Jimmy…
+Jimmy:          ...Hi Kimmy.
+Kimmy:          Hi Jimmy…
 {not intro: -> intro}
 -> choice
 
@@ -420,7 +420,7 @@ Amber:          I’d like that!
 Kimmy:          I do like sports. My dad might even take me, if I ask nicely.
 + [Awesome]
 -Dana:          Awesome! I’ll come too! It’s fun to watch your baseball games, Anthony.
-Anthony:            			I’ll let you know when the season starts.
+Anthony:            I’ll let you know when the season starts.
 -> choice
 
 === playfunction ===
