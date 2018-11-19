@@ -17,6 +17,7 @@ public class StoryManager : MonoBehaviour
         _story = new Story(Loader.i.inkJSONAsset.text);
         _storyDisplay.Display(_story.currentText);
         _storyDisplay.ButtonClicked.AddListener(MakeChoice);
+        Next();
     }
     
     private void Update()
@@ -42,7 +43,7 @@ public class StoryManager : MonoBehaviour
         else
             _story.ResetState();
             
-        
+        print(_story.state.currentPathString);
     }
 
     private void NextText()
