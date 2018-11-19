@@ -47,16 +47,14 @@ Your mom is standing on the porch.
 Dana:           Mom! Look! God sent me a baby!
 Mom:            ...Excuse me?
 Dana:           Her name is Kimmy!
-+ [It seems that Kimmy has something to say.]
--Kimmy:         ...
+Kimmy:         ...
 Kimmy:          (Kimmy remains silent.)
 Mom:            That… No, Dana. God did not send you a baby.
 Dana:           What do you mean…? You said God sends people babies sometimes! You told me that.
 Mom:            Well… nevermind what I said. It doesn’t apply to you yet. God isn’t about to send you a baby anytime soon, trust me.
 Dana:           What! Why? I wished for a baby, and he granted my wish. Isn’t it obvious?
 Mom:            Where did you find this little girl? Honey, where’s your house?
-+ [It seems that Kimmy has something to say.]
--Kimmy:         ...
+Kimmy:         ...
 Kimmy:          (Kimmy remains silent.)
 Mom:            Kimmy, can you tell me where your parents are?
 Kimmy:          I can go home later if I want…

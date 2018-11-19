@@ -10,7 +10,10 @@ public class StoryManager : MonoBehaviour
     private Story _story;
     [SerializeField] private StoryDisplay _storyDisplay;
     [SerializeField] private CharacterDisplay _characterDisplay;
+    [SerializeField] private DialogueGUI _dialogueGui;
 
+    private bool waitforchoice;
+    
 //    [SerializeField] private Background _background;
 
     private float lastMove;
@@ -38,6 +41,7 @@ public class StoryManager : MonoBehaviour
 
     private void MakeChoice(Choice choice)
     {
+        waitforchoice = false;
         _story.ChooseChoiceIndex(choice.index);
         Next();
     }
@@ -46,6 +50,8 @@ public class StoryManager : MonoBehaviour
     {
         lastMove = Time.time;
 
+        if (waitforchoice) return;
+        
         if (_story.canContinue)
             NextText();
         else if (_story.currentChoices.Count > 0)
@@ -64,10 +70,10 @@ public class StoryManager : MonoBehaviour
             int i = text.IndexOf(':');
             name = text.Substring(0, i);
             text = text.Substring(i + 1, text.Length - i - 1).Trim();
-            _characterDisplay.Display(name);
+            _dialogueGui.DisplayCharacter(name);
         }
         else
-            _characterDisplay.NoDisplay();
+            _dialogueGui.NoCharacter();
 
 
         _storyDisplay.Display(text);
@@ -75,6 +81,7 @@ public class StoryManager : MonoBehaviour
 
     private void NextOptions()
     {
+        waitforchoice = true;
         _storyDisplay.DisplayOptions(_story.currentChoices);
     }
 }

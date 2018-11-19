@@ -4,6 +4,7 @@ using Ink.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [Serializable]
@@ -16,6 +17,7 @@ public class StoryDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _textPrefab;
 	[SerializeField] private Button _buttonPrefab;
 
+	
 	[HideInInspector]
 	public ChoiceMade ButtonClicked;
 
@@ -33,7 +35,8 @@ public class StoryDisplay : MonoBehaviour
 
 	public void DisplayOptions(List<Choice> choices)
 	{
-		RemoveChildren();
+		int i = 0;
+		
 		foreach (Choice choice in choices)
 		{
 			Button button = CreateChoiceView (choice.text.Trim ());
@@ -42,6 +45,9 @@ public class StoryDisplay : MonoBehaviour
 			{
 				ButtonClicked.Invoke(choice);
 			});
+
+			if (i == 0) EventSystem.current.SetSelectedGameObject(button.gameObject);
+			i++;
 		}
 		
 	}

@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1")) Interact();
+        if (Input.GetButtonDown("Interact")) Interact();
         _inputMove = Input.GetAxis("Horizontal");
 
         Vector2 movementVector = new Vector2(_inputMove * Speed, 0);
