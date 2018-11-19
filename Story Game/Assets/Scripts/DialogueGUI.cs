@@ -9,8 +9,11 @@ public class DialogueGUI : MonoBehaviour
 {
 
 	[SerializeField] private Image _characterDisplay;
+	[SerializeField] private LayoutElement _characterWindow;
+	[SerializeField] private CanvasGroup _characterCanvasGroup;
+
+	[SerializeField] private TextMeshProUGUI _characterName;
 	[SerializeField] private TextMeshProUGUI _dialogueDisplay;
-	[SerializeField] private CanvasGroup _canvasGroup;
 	
 	private CharacterSet _characters;
 
@@ -19,37 +22,51 @@ public class DialogueGUI : MonoBehaviour
 		_characters = Loader.i.Characters;
 	}
 
-	private void Update()
-	{
-		if (Input.GetButton("Cancel"))
-		{
-			HideCanvas();
-		}
-	}
-
 	public void DisplayCharacter(string name)
 	{
 		_characterDisplay.sprite = _characters.GetCharacter(name).Sprite;
+		_characterName.text = name;
+		_characterWindow.ignoreLayout = false;
 		ShowCanvas();
+		ShowCanvas(_characterCanvasGroup);
 	}
 	
 	public void NoCharacter()
 	{
 		_characterDisplay.sprite = null;
+		_characterName.text = "";
+		_characterWindow.ignoreLayout = true;
+		HideCanvas(_characterCanvasGroup);
+	}
+	
+	private static void HideCanvas(CanvasGroup canvas)
+	{
+		canvas.alpha = 0f;
+		canvas.blocksRaycasts = false;
+		canvas.interactable = false;
+	}
+
+	private static void ShowCanvas(CanvasGroup canvas)
+	{
+		canvas.alpha = 1f;
+		canvas.blocksRaycasts = true;
+		canvas.interactable = true;
 	}
 
 	public void HideCanvas()
 	{
-		_canvasGroup.alpha = 0f;
-		_canvasGroup.blocksRaycasts = false;
-		_canvasGroup.interactable = false;
+		HideCanvas(GetComponent<CanvasGroup>());
+//		_canvasGroup.alpha = 0f;
+//		_canvasGroup.blocksRaycasts = false;
+//		_canvasGroup.interactable = false;
 	}
 
 	public void ShowCanvas()
 	{
-		_canvasGroup.alpha = 1f;
-		_canvasGroup.blocksRaycasts = true;
-		_canvasGroup.interactable = true;
+		ShowCanvas(GetComponent<CanvasGroup>());
+//		_canvasGroup.alpha = 1f;
+//		_canvasGroup.blocksRaycasts = true;
+//		_canvasGroup.interactable = true;
 	}
 	
 }

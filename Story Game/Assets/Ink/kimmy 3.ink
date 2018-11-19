@@ -72,9 +72,11 @@ Kimmy's house is on a quiet street next to a toy store. her harnass is on the po
 Mrs.Munro:            Thank you for finding Kimmy and walking her home. What's your name, dear?
 * [I’m Dana…]
 Dana:           I’m Dana…
-* Uhhhhhh
-   Mrs.Munro:         You do Have a name, don't you?
-    ** Dana:            Dana.
+* [Uhhhhhh]
+    Dana: Uhhhh...
+    Mrs.Munro:         You do Have a name, don't you?
+    ** [Dana]
+    --Dana:            Dana.
 - Mrs.Munro:          I don’t know many kids as responsible as you, walking Kimmy all the way home. I hope you two can be friends. I know Kimmy could learn a lot from you.
 Kimmy:          My… friend?
 * [Yes!]Dana:            Yes! I’d love to be friends, Kimmy. Can I come by and play with you tomorrow?

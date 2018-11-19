@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad0cbced7559435c9b74f816061a9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
+  Speed: 5
   InteractRange: 3
   InteractLayer:
     serializedVersion: 2
