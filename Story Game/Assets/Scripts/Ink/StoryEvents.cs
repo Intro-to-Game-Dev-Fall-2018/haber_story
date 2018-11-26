@@ -49,13 +49,11 @@ public class StoryEvents : MonoBehaviour
 	
 	public BlockUpdateEvent onBlockUpdate;
 	public UnityEvent onChoiceMade;
-	public StringUnityEvent onSceneChange;
 
 	private void Awake()
 	{
 		onBlockUpdate = new BlockUpdateEvent();
 		onChoiceMade = new UnityEvent();
-		onSceneChange = new StringUnityEvent();
 		if (i == null) i = this;
 		else
 		{

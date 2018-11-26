@@ -69,7 +69,7 @@ public class StoryManager : MonoBehaviour
         TextBlock block = new TextBlock(text);
         StoryEvents.i.onBlockUpdate.Invoke(block);
         
-        if (block.IsInstruction) Next();
+        if (block.IsInstruction) StartCoroutine(DelayNextCall());
     }
 
     private void NextOptions()
@@ -80,6 +80,9 @@ public class StoryManager : MonoBehaviour
 
     private IEnumerator DelayNextCall()
     {
-        yield return null;
+        _waitingForChoice = true;
+        yield return new WaitForSeconds(Loader.i.Settings.FadeBlackTime);
+        _waitingForChoice = false;
+        Next();
     }
 }

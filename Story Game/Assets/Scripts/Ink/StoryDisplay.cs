@@ -33,6 +33,7 @@ public class StoryDisplay : MonoBehaviour
 
 	public void Display(TextBlock block)
 	{
+		if (block.IsInstruction) return;
 		RemoveChildren();
 		TextMeshProUGUI tmp = Instantiate(_textPrefab, UI.transform);
 		tmp.text = block.Text;
@@ -62,7 +63,6 @@ public class StoryDisplay : MonoBehaviour
 		choiceText.text = text;
 		return choice;
 	}
-	
 	
 	private void RemoveChildren()
 	{

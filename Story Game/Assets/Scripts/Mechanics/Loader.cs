@@ -5,6 +5,7 @@ public class Loader : MonoBehaviour
 	public static Loader i;
 	public TextAsset inkJSONAsset;
 	public CharacterSet Characters;
+	public CharacterSet Backgrounds;
 	public Settings Settings;
 	
 	private void Awake ()

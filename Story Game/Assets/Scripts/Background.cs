@@ -16,8 +16,6 @@ public class Background : MonoBehaviour
 	{
 		if (!block.IsInstruction) return;
 
-		print(block.Name);
-		
 		switch (block.Name)
 		{
 			case "bg":
@@ -48,6 +46,7 @@ public class Background : MonoBehaviour
 			if (alpha > 1-float.Epsilon) yield break;
 		}
 
+		print(bg);
 //		_background.sprite = null;
 		
 		for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / Loader.i.Settings.FadeInTime)

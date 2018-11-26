@@ -306,6 +306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSONAsset: {fileID: 4900000, guid: eddf7c89f6f5a445d81087aa494d366f, type: 3}
   Characters: {fileID: 11400000, guid: b6354ba2982ef445796559e518d94181, type: 2}
+  Backgrounds: {fileID: 11400000, guid: 102e585a6db2a433c963123bee37083e, type: 2}
+  Settings: {fileID: 11400000, guid: 51f501010fc634631bffdfbc32ae0485, type: 2}
 --- !u!4 &276587917
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,8 +1392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b971abd1a66f4b5b9d274e6efecd141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeOutTime: 2
-  _fadeInTime: 2
   _uiCover: {fileID: 160405796}
   _background: {fileID: 0}
 --- !u!4 &1621679340
@@ -1504,8 +1504,3 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onSceneChange:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: StringUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
