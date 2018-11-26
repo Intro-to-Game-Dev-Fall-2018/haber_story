@@ -13,13 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characters:
   - Name: home
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 007a6d5b8a67c41c48d14aa27843fdfb, type: 3}
   - Name: ferry st
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 0de4b46d5febb48a985730a54a63c510, type: 3}
   - Name: map
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 51172a045e68740f6886415602cc1820, type: 3}
   - Name: downtown
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 441fec67a04184147a0844294c7131a1, type: 3}
   unknown:
     Name: unknown
     Sprite: {fileID: 0}

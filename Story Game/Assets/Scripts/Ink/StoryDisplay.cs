@@ -41,6 +41,8 @@ public class StoryDisplay : MonoBehaviour
 
 	public void DisplayOptions(List<Choice> choices)
 	{
+		
+		
 		int i = 0;
 		
 		foreach (Choice choice in choices)

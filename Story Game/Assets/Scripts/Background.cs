@@ -7,9 +7,12 @@ public class Background : MonoBehaviour
 
 	[SerializeField] private Image _uiCover;
 	[SerializeField] private Image _background;
+
+	private CharacterSet _bgSet;
 	
 	private void Start () {
 		StoryEvents.i.onBlockUpdate.AddListener(CheckUpdate);
+		_bgSet = Loader.i.Backgrounds;
 	}
 
 	private void CheckUpdate(TextBlock block)
@@ -46,8 +49,7 @@ public class Background : MonoBehaviour
 			if (alpha > 1-float.Epsilon) yield break;
 		}
 
-		print(bg);
-//		_background.sprite = null;
+		_background.sprite = _bgSet.GetCharacter(bg).Sprite;
 		
 		for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / Loader.i.Settings.FadeInTime)
 		{
