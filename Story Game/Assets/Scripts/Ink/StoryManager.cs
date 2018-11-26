@@ -1,4 +1,5 @@
-﻿using Ink.Runtime;
+﻿using System.Collections;
+using Ink.Runtime;
 using UnityEngine;
 
 public class StoryManager : MonoBehaviour
@@ -22,7 +23,7 @@ public class StoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Submit") && Time.time > lastMove + .8)
+        if (Input.GetButton("Submit") && Time.time > lastMove + Loader.i.Settings.DelayInput)
             Next();
     }
 
@@ -67,11 +68,18 @@ public class StoryManager : MonoBehaviour
         
         TextBlock block = new TextBlock(text);
         StoryEvents.i.onBlockUpdate.Invoke(block);
+        
+        if (block.IsInstruction) Next();
     }
 
     private void NextOptions()
     {
         _waitingForChoice = true;
         _storyDisplay.DisplayOptions(_story.currentChoices);
+    }
+
+    private IEnumerator DelayNextCall()
+    {
+        yield return null;
     }
 }

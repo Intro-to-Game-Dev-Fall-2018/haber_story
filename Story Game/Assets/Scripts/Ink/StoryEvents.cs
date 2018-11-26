@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class TextBlock
 {
 	public readonly bool IsDialogue;
+	public readonly bool IsInstruction;
 	public readonly string Name;
 	public readonly string Text;
 
@@ -16,11 +17,21 @@ public class TextBlock
 			Name = text.Substring(0, i);
 			Text = text.Substring(i + 1, text.Length - i - 1).Trim();
 			IsDialogue = true;
+			IsInstruction = false;
+		}
+		else if (text.Contains(";"))
+		{
+			int i = text.IndexOf(';');
+			Name = text.Substring(0, i);
+			Text = text.Substring(i + 1, text.Length - i - 1).Trim();
+			IsDialogue = false;
+			IsInstruction = true;
 		}
 		else
 		{
 			Text = text;
 			IsDialogue = false;
+			IsInstruction = false;
 		}
 	}
 }

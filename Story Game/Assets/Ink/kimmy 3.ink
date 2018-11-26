@@ -36,7 +36,8 @@ VAR cardsCost = 7
 -> intro_scene
 
 === intro_scene ===
-Late 1960s, Massachusetts.
+bg; home
+Late 1960s, Massachusetts. 
 Your mom is standing on the porch.
 + [Talk to Mom]
 -> scene 
@@ -66,6 +67,7 @@ Kimmy:          Ferry Street... I untied myself from the porch so I could go for
 -> kimmy_house_intro
 
 = kimmy_house_intro
+bg; ferry st
 Kimmy's house is on a quiet street next to a toy store. her harnass is on the porch.
 * [Knock]
 - Kimmy's mother opens the door.
@@ -95,6 +97,7 @@ Dana:           Bye bye.
 -> pickup_kimmy
 
 = pickup_kimmy
+bg; ferry st
 Dana:           Mornin’ Kimmy! I’m here to babysit, like I promised! Is your mom around?
 Kimmy:          My mommy’s not inside. She left already.
 Dana:           Oh, ok… Um, well… Is there anything you’d like to do today, Kimmy?
@@ -121,6 +124,7 @@ Kimmy:          ...!
 -> map
 
 === map ===
+bg; map
 Where to next?
 + [Downtown] 
 -> downtown
@@ -130,6 +134,7 @@ Where to next?
 -> Done
 
 === ferry_street ===
+bg; ferry st
 Dean's store is open. Donna sits on the sidewalk.
 + [Talk to Donna] -> donna
 + [Enter the store] -> store
@@ -259,6 +264,7 @@ Kimmy:          …Maybe.
 -> choice
 
 === downtown ===
+bg; downtown
 Jimmy is reading a comic book. Anthony and his sister are hanging out.
 + [Talk to Jimmy] 
 -> jimmy
