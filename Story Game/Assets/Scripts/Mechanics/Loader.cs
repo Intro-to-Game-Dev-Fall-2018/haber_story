@@ -40,7 +40,6 @@ public class Loader : MonoBehaviour
 	
 	private IEnumerator Load(string name)
 	{
-		_isLoading = true;
 		AsyncOperation operation = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
 		while (!operation.isDone)
 		{
