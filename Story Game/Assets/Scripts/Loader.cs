@@ -1,5 +1,4 @@
-﻿using Ink.Runtime;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
@@ -13,4 +12,9 @@ public class Loader : MonoBehaviour
 		else Destroy(gameObject);
 	}
 
+	private void Start()
+	{
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
+	}
 }

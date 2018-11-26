@@ -1,6 +1,4 @@
-﻿using System;
-using Boo.Lang;
-using Ink.Runtime;
+﻿using Ink.Runtime;
 using UnityEngine;
 
 public class StoryManager : MonoBehaviour
@@ -9,20 +7,15 @@ public class StoryManager : MonoBehaviour
 
     private Story _story;
     [SerializeField] private StoryDisplay _storyDisplay;
-    [SerializeField] private CharacterDisplay _characterDisplay;
-    [SerializeField] private DialogueGUI _dialogueGui;
 
     private bool _waitingForChoice;
     
-//    [SerializeField] private Background _background;
-
     private float lastMove;
 
     private void Start()
     {
         if (i == null) i = this;
         _story = new Story(Loader.i.inkJSONAsset.text);
-        _storyDisplay.Display(_story.currentText);
         _storyDisplay.ButtonClicked.AddListener(MakeChoice);
         Next();
     }
@@ -43,6 +36,7 @@ public class StoryManager : MonoBehaviour
     {
         _waitingForChoice = false;
         _story.ChooseChoiceIndex(choice.index);
+        StoryEvents.i.onChoiceMade.Invoke();
         Next();
     }
 
@@ -58,12 +52,12 @@ public class StoryManager : MonoBehaviour
             NextOptions();
         else
             _story.ResetState();
+     
     }
 
     private void NextText()
     {
         string text = _story.Continue();
-        string name;
 
         if (text.Trim().Length == 0)
         {
@@ -71,18 +65,8 @@ public class StoryManager : MonoBehaviour
             return;
         }
         
-        if (text.Contains(":"))
-        {
-            int i = text.IndexOf(':');
-            name = text.Substring(0, i);
-            text = text.Substring(i + 1, text.Length - i - 1).Trim();
-            _dialogueGui.DisplayCharacter(name);
-        }
-        else
-            _dialogueGui.NoCharacter();
-
-
-        _storyDisplay.Display(text);
+        TextBlock block = new TextBlock(text);
+        StoryEvents.i.onBlockUpdate.Invoke(block);
     }
 
     private void NextOptions()

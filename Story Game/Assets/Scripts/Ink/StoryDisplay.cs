@@ -26,11 +26,16 @@ public class StoryDisplay : MonoBehaviour
 		if (ButtonClicked == null) ButtonClicked = new ChoiceMade();
 	}
 
-	public void Display(string text)
+	private void Start()
+	{
+		StoryEvents.i.onBlockUpdate.AddListener(Display);
+	}
+
+	public void Display(TextBlock block)
 	{
 		RemoveChildren();
 		TextMeshProUGUI tmp = Instantiate(_textPrefab, UI.transform);
-		tmp.text = text;
+		tmp.text = block.Text;
 	}
 
 	public void DisplayOptions(List<Choice> choices)
@@ -49,21 +54,12 @@ public class StoryDisplay : MonoBehaviour
 			if (i == 0) EventSystem.current.SetSelectedGameObject(button.gameObject);
 			i++;
 		}
-		
 	}
 
 	private Button CreateChoiceView (string text) {
-		// Creates the button from a prefab
 		Button choice = Instantiate (_buttonPrefab,UI.transform);
-		
-		// Gets the text from the button prefab
 		Text choiceText = choice.GetComponentInChildren<Text>();
 		choiceText.text = text;
-
-		// Make the button expand to fit the text
-//		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
-//		layoutGroup.childForceExpandHeight = false;
-
 		return choice;
 	}
 	
