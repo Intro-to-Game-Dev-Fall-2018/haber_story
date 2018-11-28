@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
@@ -16,7 +17,6 @@ public class StoryDisplay : MonoBehaviour
 	[SerializeField] private Canvas UI;
 	[SerializeField] private TextMeshProUGUI _textPrefab;
 	[SerializeField] private Button _buttonPrefab;
-
 	
 	[HideInInspector]
 	public ChoiceMade ButtonClicked;
@@ -37,23 +37,19 @@ public class StoryDisplay : MonoBehaviour
 		RemoveChildren();
 		TextMeshProUGUI tmp = Instantiate(_textPrefab, UI.transform);
 		tmp.text = block.Text;
+		StartCoroutine(Typewriter(tmp));
 	}
 
 	public void DisplayOptions(List<Choice> choices)
 	{
-		
-		
 		int i = 0;
+
+//		UI.GetComponentInChildren<TMP_Text>().text += "\n";
 		
 		foreach (Choice choice in choices)
 		{
 			Button button = CreateChoiceView (choice.text.Trim ());
-			
-			button.onClick.AddListener(() =>
-			{
-				ButtonClicked.Invoke(choice);
-			});
-
+			button.onClick.AddListener(() => {ButtonClicked.Invoke(choice);});
 			if (i == 0) EventSystem.current.SetSelectedGameObject(button.gameObject);
 			i++;
 		}
@@ -71,4 +67,16 @@ public class StoryDisplay : MonoBehaviour
 		foreach (Transform child in UI.transform)
 			Destroy(child.gameObject);
 	}
+
+	private static IEnumerator Typewriter(TMP_Text tmp)
+	{
+		int chars = 0;
+		while (chars < tmp.text.Length)
+		{
+			tmp.maxVisibleCharacters = chars++;
+			yield return new WaitForSeconds(.001f);
+		}
+
+		tmp.maxVisibleCharacters = tmp.text.Length;
+	} 
 }

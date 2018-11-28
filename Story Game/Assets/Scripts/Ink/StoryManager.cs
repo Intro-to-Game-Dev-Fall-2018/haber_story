@@ -23,7 +23,7 @@ public class StoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Submit") && Time.time > lastMove + Loader.i.Settings.DelayInput)
+        if (Input.GetAxis("Horizontal") > .1 && Time.time > lastMove + Loader.i.Settings.DelayInput)
             Next();
     }
 
