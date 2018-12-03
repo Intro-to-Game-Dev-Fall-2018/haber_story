@@ -70,10 +70,6 @@ public class StoryManager : MonoBehaviour
         
         if (_story.currentTags.Count > 0)
             StoryEvents.i.onTagUpdate.Invoke(_story.currentTags);
-        
-        if (block.IsInstruction) 
-            Next();
-//            StartCoroutine(DelayNextCall());
     }
 
     private void NextOptions()

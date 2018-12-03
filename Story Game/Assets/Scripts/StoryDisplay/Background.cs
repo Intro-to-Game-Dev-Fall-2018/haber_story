@@ -9,29 +9,13 @@ public class Background : MonoBehaviour
     [SerializeField] private Image _background;
 
     private CharacterSet _bgSet;
-    private int numIter;
+    private int _numIter;
 
     private void Start()
     {
-//        StoryEvents.i.onBlockUpdate.AddListener(CheckUpdate);
         StoryEvents.i.onTagUpdate.AddListener(CheckUpdate);
         _bgSet = Loader.i.Backgrounds;
         _uiCover.enabled = true;
-    }
-
-    private void CheckUpdate(TextBlock block)
-    {
-        if (!block.IsInstruction) return;
-
-        switch (block.Name)
-        {
-            case "bg":
-                ChangeBackground(block.Text);
-                break;
-            default:
-                print(block.Name);
-                break;
-        }
     }
 
     private void CheckUpdate(List<string> list)
@@ -52,7 +36,7 @@ public class Background : MonoBehaviour
     {
         Color imageColor = _uiCover.color;
         
-        float alpha = numIter++ > 0 ? 0 : 1;
+        float alpha = _numIter++ > 0 ? 0 : 1;
 
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / Loader.i.Settings.FadeBlackTime)
         {

@@ -12,34 +12,24 @@ MonoBehaviour:
   m_Name: KimmyCast
   m_EditorClassIdentifier: 
   _characters:
-  - Name: Will
+  - Name: Dana
     Sprite: {fileID: 21300000, guid: 2d44e9366fac943c19ad97714ca97af6, type: 3}
-    PreferLeft: 1
-  - Name: Carlton
+  - Name: Kimmy
     Sprite: {fileID: 21300000, guid: 68eb91ec806604c2aae254df2eb9205f, type: 3}
-    PreferLeft: 0
   - Name: Mom
     Sprite: {fileID: 21300000, guid: a314ef11f783b4c459dc10018b92a5cb, type: 3}
-    PreferLeft: 0
   - Name: Donna
-    Sprite: {fileID: 21300000, guid: 0a58f1f5d7cc64f048288aefd5fe2391, type: 3}
-    PreferLeft: 0
+    Sprite: {fileID: 21300000, guid: 9221a826377564b0fb45eb3eff68c2bc, type: 3}
   - Name: Jimmy
     Sprite: {fileID: 21300000, guid: 2635ff9f8158c4a7c98458d19e5fd75d, type: 3}
-    PreferLeft: 0
   - Name: Mrs.Munro
-    Sprite: {fileID: 21300000, guid: 22f63d64feed049aaa72480d09e15412, type: 3}
-    PreferLeft: 0
+    Sprite: {fileID: 21300000, guid: 19f33ff27c1f24003957aec5864aa3be, type: 3}
   - Name: Anthony
-    Sprite: {fileID: 21300000, guid: f2ab40e9f03864410b6393f29cdc8918, type: 3}
-    PreferLeft: 0
+    Sprite: {fileID: 21300000, guid: 3325751b48dd14e279b8af1fa2a9d3e6, type: 3}
   - Name: Amber
-    Sprite: {fileID: 21300000, guid: f2a2a0e3a3d1343abbbb249b00e485c1, type: 3}
-    PreferLeft: 0
+    Sprite: {fileID: 21300000, guid: 1d66a63f540064accaba9de9b00a9cd3, type: 3}
   - Name: Dean
-    Sprite: {fileID: 21300000, guid: e6c2fe11569764250bf56773dc116d97, type: 3}
-    PreferLeft: 0
+    Sprite: {fileID: 21300000, guid: 15b803caaec00499fb8f5b84e7c608e0, type: 3}
   unknown:
     Name: unknown
     Sprite: {fileID: 0}
-    PreferLeft: 0

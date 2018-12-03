@@ -24,7 +24,16 @@ public class CharacterPanel : MonoBehaviour
 		foreach (string s in characters)
 		{
 			if (!s.StartsWith("ch")) continue;
-			string character_name = s.Substring(3).Trim();
+
+			if (s.StartsWith("chclear:"))
+			{
+				Clear();
+				return;
+			}
+
+			bool left = s.StartsWith("chl");
+
+			string character_name = s.Substring(4).Trim();
 			
 			if (activeCharacters.Count == 0) Clear();
 			
@@ -34,10 +43,15 @@ public class CharacterPanel : MonoBehaviour
 			Character character_var = Loader.i.Characters.GetCharacter(character_name);
 
 
-			bool left = character_var.PreferLeft;
-			
 			GameObject i = Instantiate(_characterPrefab, left ? _left.transform : _right.transform);
 			i.GetComponent<Image>().sprite = character_var.Sprite;
+
+			if (!left)
+			{
+				Vector3 theScale = i.transform.localScale;
+				theScale.x *= -1;
+				i.transform.localScale = theScale;
+			}
 			
 			print(character_var.Name);
 		}
