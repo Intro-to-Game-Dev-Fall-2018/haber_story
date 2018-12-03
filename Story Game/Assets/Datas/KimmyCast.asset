@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4a8fb997ee74ac1944e8be9cb4a251, type: 3}
+  m_Name: KimmyCast
+  m_EditorClassIdentifier: 
+  _characters:
+  - Name: Will
+    Sprite: {fileID: 21300000, guid: 2d44e9366fac943c19ad97714ca97af6, type: 3}
+    PreferLeft: 1
+  - Name: Carlton
+    Sprite: {fileID: 21300000, guid: 68eb91ec806604c2aae254df2eb9205f, type: 3}
+    PreferLeft: 0
+  - Name: Mom
+    Sprite: {fileID: 21300000, guid: a314ef11f783b4c459dc10018b92a5cb, type: 3}
+    PreferLeft: 0
+  - Name: Donna
+    Sprite: {fileID: 21300000, guid: 0a58f1f5d7cc64f048288aefd5fe2391, type: 3}
+    PreferLeft: 0
+  - Name: Jimmy
+    Sprite: {fileID: 21300000, guid: 2635ff9f8158c4a7c98458d19e5fd75d, type: 3}
+    PreferLeft: 0
+  - Name: Mrs.Munro
+    Sprite: {fileID: 21300000, guid: 22f63d64feed049aaa72480d09e15412, type: 3}
+    PreferLeft: 0
+  - Name: Anthony
+    Sprite: {fileID: 21300000, guid: f2ab40e9f03864410b6393f29cdc8918, type: 3}
+    PreferLeft: 0
+  - Name: Amber
+    Sprite: {fileID: 21300000, guid: f2a2a0e3a3d1343abbbb249b00e485c1, type: 3}
+    PreferLeft: 0
+  - Name: Dean
+    Sprite: {fileID: 21300000, guid: e6c2fe11569764250bf56773dc116d97, type: 3}
+    PreferLeft: 0
+  unknown:
+    Name: unknown
+    Sprite: {fileID: 0}
+    PreferLeft: 0

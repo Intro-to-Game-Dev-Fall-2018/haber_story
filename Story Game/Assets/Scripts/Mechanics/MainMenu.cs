@@ -2,7 +2,6 @@
 
 public class MainMenu : MonoBehaviour
 {
-
 	public void StartGame()
 	{
 		Loader.i.LoadGame();
@@ -13,5 +12,4 @@ public class MainMenu : MonoBehaviour
 		Application.Quit();
 	}
 
-	
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueGUI : MonoBehaviour
@@ -11,7 +7,6 @@ public class DialogueGUI : MonoBehaviour
 	[SerializeField] private Image _characterDisplay;
 	[SerializeField] private LayoutElement _characterWindow;
 	[SerializeField] private CanvasGroup _characterCanvasGroup;
-	[SerializeField] private TextMeshProUGUI _characterName;
 	
 	private CharacterSet _characters;
 
@@ -32,7 +27,6 @@ public class DialogueGUI : MonoBehaviour
 	private void DisplayDialogue(TextBlock block)
 	{
 		_characterDisplay.sprite = _characters.GetCharacter(block.Name).Sprite;
-		_characterName.text = block.Name;
 		_characterWindow.ignoreLayout = false;
 		ShowCanvas();
 		ShowCanvas(_characterCanvasGroup);
@@ -41,7 +35,6 @@ public class DialogueGUI : MonoBehaviour
 	private void DisplayText()
 	{
 		_characterDisplay.sprite = null;
-		_characterName.text = "";
 		_characterWindow.ignoreLayout = true;
 		HideCanvas(_characterCanvasGroup);
 	}

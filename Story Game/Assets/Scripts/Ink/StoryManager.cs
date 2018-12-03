@@ -44,7 +44,7 @@ public class StoryManager : MonoBehaviour
     private void Next()
     {
         lastMove = Time.time;
-
+        
         if (_waitingForChoice) return;
         
         if (_story.canContinue)
@@ -53,7 +53,6 @@ public class StoryManager : MonoBehaviour
             NextOptions();
         else
             _story.ResetState();
-     
     }
 
     private void NextText()
@@ -69,7 +68,12 @@ public class StoryManager : MonoBehaviour
         TextBlock block = new TextBlock(text);
         StoryEvents.i.onBlockUpdate.Invoke(block);
         
-        if (block.IsInstruction) StartCoroutine(DelayNextCall());
+        if (_story.currentTags.Count > 0)
+            StoryEvents.i.onTagUpdate.Invoke(_story.currentTags);
+        
+        if (block.IsInstruction) 
+            Next();
+//            StartCoroutine(DelayNextCall());
     }
 
     private void NextOptions()

@@ -6,6 +6,7 @@ public struct Character
 {
 	public string Name;
 	public Sprite Sprite;
+	public bool PreferLeft;
 }
 
 [CreateAssetMenu(menuName = "Character Set")]

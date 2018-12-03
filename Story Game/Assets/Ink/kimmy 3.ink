@@ -36,7 +36,8 @@ VAR cardsCost = 7
 -> intro_scene
 
 === intro_scene ===
-bg; home
+#bg: home
+char;
 Late 1960s, West Philadelphia. 
 Your mom is standing on the porch.
 + [Talk to Mom]
@@ -44,7 +45,9 @@ Your mom is standing on the porch.
 + {devmode} [Skip Intro]
 -> map
 
-= scene
+= scene 
+#ch: Will #ch: Mom #ch: Carlton
+char; Will,Mom,Carlton
 Will:           Mom! Look! God sent me a baby!
 Mom:            ...Excuse me?
 Will:           Her name is Carlton!
@@ -67,8 +70,8 @@ Carlton:          Ferry Street... I untied myself from the porch so I could go f
 -> Carlton_house_intro
 
 = Carlton_house_intro
-bg; ferry st
-Carlton's house is on a quiet street next to a toy store. her harnass is on the porch.
+#bg; ferry st
+Carlton's house is on a quiet street next to a toy store.
 * [Knock]
 - Carlton's mother opens the door.
 Mrs.Munro:            Thank you for finding Carlton and walking her home. What's your name, dear?
@@ -97,7 +100,7 @@ Will:           Bye bye.
 -> pickup_Carlton
 
 = pickup_Carlton
-bg; ferry st
+#bg; ferry st
 Will:           Mornin’ Carlton! I’m here to babysit, like I promised! Is your mom around?
 Carlton:          My mommy’s not inside. She left already.
 Will:           Oh, ok… Um, well… Is there anything you’d like to do today, Carlton?
@@ -124,7 +127,7 @@ Carlton:          ...!
 -> map
 
 === map ===
-bg; map
+#bg; map #ch:
 Where to next?
 + [Downtown] 
 -> downtown
@@ -134,7 +137,7 @@ Where to next?
 -> Done
 
 === ferry_street ===
-bg; ferry st
+#bg; ferry st
 Dean's store is open. Donna sits on the sidewalk.
 + [Talk to Donna] -> donna
 + [Enter the store] -> store
@@ -265,7 +268,7 @@ Carlton:          …Maybe.
 -> choice
 
 === downtown ===
-bg; downtown
+#bg; downtown
 Jimmy is reading a comic book. Anthony and his sister are hanging out.
 + [Talk to Jimmy] 
 -> jimmy
@@ -353,7 +356,7 @@ Will:           Haha, you two...
 === anthonyamber
 Will:           Hey Anthony.
 Anthony:        Hi Will.
-{not intro:          -> intro}
+{not intro: -> intro}
 -> choice
 
 = choice
@@ -366,8 +369,7 @@ Anthony:        Hi Will.
 -> playfunction -> friendsuccess
 
 = intro
-Will:			Hey Anthony.
-Anthony:			Hi Will. It’s so weird seeing you outside of school, haha.
+Anthony:            It’s so weird seeing you outside of school, haha.
 Amber:			I’m Amber!
 Anthony:			This is my little sister, Amber. Is that your sister, Will? I didn’t know you had a little sister.
 + [Babysitter] 

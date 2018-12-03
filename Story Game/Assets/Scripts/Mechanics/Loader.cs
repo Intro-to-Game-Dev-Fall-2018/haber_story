@@ -12,6 +12,7 @@ public class Loader : MonoBehaviour
 	
 	private bool _isLoading;
 
+	public bool load;
 	
 	private void Awake ()
 	{
@@ -34,6 +35,8 @@ public class Loader : MonoBehaviour
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 
+		if (!load) return;
+		
 		StartCoroutine(Load("Menu"));
 		StartCoroutine(Load("Music"));
 	}

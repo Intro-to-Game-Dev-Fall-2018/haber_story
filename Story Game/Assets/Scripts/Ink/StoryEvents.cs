@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -42,6 +43,9 @@ public class StringUnityEvent : UnityEvent<string> {}
 [Serializable]
 public class BlockUpdateEvent : UnityEvent<TextBlock> {}
 
+[Serializable]
+public class TagUpdateEvent : UnityEvent<List<string>> {}
+
 public class StoryEvents : MonoBehaviour
 {
 
@@ -49,11 +53,13 @@ public class StoryEvents : MonoBehaviour
 	
 	public BlockUpdateEvent onBlockUpdate;
 	public UnityEvent onChoiceMade;
+	public TagUpdateEvent onTagUpdate;
 
 	private void Awake()
 	{
 		onBlockUpdate = new BlockUpdateEvent();
 		onChoiceMade = new UnityEvent();
+		onTagUpdate = new TagUpdateEvent();
 		if (i == null) i = this;
 		else
 		{

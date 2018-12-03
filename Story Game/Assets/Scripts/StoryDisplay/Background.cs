@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,8 @@ public class Background : MonoBehaviour
 
     private void Start()
     {
-        StoryEvents.i.onBlockUpdate.AddListener(CheckUpdate);
+//        StoryEvents.i.onBlockUpdate.AddListener(CheckUpdate);
+        StoryEvents.i.onTagUpdate.AddListener(CheckUpdate);
         _bgSet = Loader.i.Backgrounds;
         _uiCover.enabled = true;
     }
@@ -29,6 +31,15 @@ public class Background : MonoBehaviour
             default:
                 print(block.Name);
                 break;
+        }
+    }
+
+    private void CheckUpdate(List<string> list)
+    {
+        foreach (string s in list)
+        {
+            if (s.StartsWith("bg"))
+                ChangeBackground(s.Substring(3).Trim());
         }
     }
 
