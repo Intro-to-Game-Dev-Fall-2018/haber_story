@@ -24,8 +24,7 @@ public class CharacterPanel : MonoBehaviour
 		foreach (string s in characters)
 		{
 			if (!s.StartsWith("ch")) continue;
-
-			if (s.StartsWith("chclear:"))
+			if (s.StartsWith("chc"))
 			{
 				Clear();
 				return;

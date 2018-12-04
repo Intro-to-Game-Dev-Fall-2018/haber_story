@@ -129,7 +129,7 @@ Kimmy:          ...!
 -> map
 
 === map ===
-#bg: map #chclear:
+#bg: map #chc:
 Where to next?
 + [Downtown] 
 -> downtown

@@ -37,15 +37,15 @@ public class CharacterDisplay : MonoBehaviour
 		transform.DOShakePosition(3f, 30f,5,120f).SetDelay(.1f);
 	}
 
-	private void TagUpdate(List<string> list)
-	{
-		foreach (string s in list)
-		{
-			if (!s.StartsWith("cp:")) continue;
-				if (s.Substring(3).Trim() == _identity.Name)
-					transform.DOShakePosition(1.8f,75f);
-		}	
-	}
+//	private void TagUpdate(List<string> list)
+//	{
+//		foreach (string s in list)
+//		{
+//			if (!s.StartsWith("cp:")) continue;
+//				if (s.Substring(3).Trim() == _identity.Name)
+//					transform.DOShakePosition(1.8f,75f);
+//		}	
+//	}
 	
 	private void OnDestroy()
 	{
