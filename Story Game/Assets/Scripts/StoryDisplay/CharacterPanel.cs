@@ -31,8 +31,6 @@ public class CharacterPanel : MonoBehaviour
 				return;
 			}
 
-			bool left = s.StartsWith("chl");
-
 			string character_name = s.Substring(4).Trim();
 			
 			if (activeCharacters.Count == 0) Clear();
@@ -40,20 +38,16 @@ public class CharacterPanel : MonoBehaviour
 			if (activeCharacters.Contains(character_name)) continue;
 			activeCharacters.Add(character_name);
 			
+			bool left = s.StartsWith("chl");
+			
 			Character character_var = Loader.i.Characters.GetCharacter(character_name);
 
-
-			GameObject i = Instantiate(_characterPrefab, left ? _left.transform : _right.transform);
-			i.GetComponent<Image>().sprite = character_var.Sprite;
-
-			if (!left)
-			{
-				Vector3 theScale = i.transform.localScale;
-				theScale.x *= -1;
-				i.transform.localScale = theScale;
-			}
+			GameObject gameObj = Instantiate(_characterPrefab, left ? _left.transform : _right.transform);
+			CharacterDisplay characterDisplay = gameObj.GetComponent<CharacterDisplay>();
 			
-			print(character_var.Name);
+			characterDisplay.Init(character_var);
+			if (!left) characterDisplay.Flip();
+
 		}
 	}
 

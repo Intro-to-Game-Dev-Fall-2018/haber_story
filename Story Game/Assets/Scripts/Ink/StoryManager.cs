@@ -17,8 +17,9 @@ public class StoryManager : MonoBehaviour
     {
         if (i == null) i = this;
         _story = new Story(Loader.i.inkJSONAsset.text);
-        _storyDisplay.ButtonClicked.AddListener(MakeChoice);
-        Next();
+        StoryEvents.i.onChoiceMade.AddListener(MakeChoice);
+        StartCoroutine(DelayStart());
+//        Next();
     }
 
     private void Update()
@@ -27,17 +28,11 @@ public class StoryManager : MonoBehaviour
             Next();
     }
 
-    public void TalkNPC(string name)
-    {
-        _story.ChoosePathString(name);
-        Next();
-    }
-
     private void MakeChoice(Choice choice)
     {
         _waitingForChoice = false;
         _story.ChooseChoiceIndex(choice.index);
-        StoryEvents.i.onChoiceMade.Invoke();
+//        StoryEvents.i.onChoiceMade.Invoke();
         Next();
     }
 
@@ -68,17 +63,7 @@ public class StoryManager : MonoBehaviour
         if (_story.currentTags.Count > 0)
             StoryEvents.i.onTagUpdate.Invoke(_story.currentTags);
 
-        bool isTransition = false;
-        
-        foreach (string s in _story.currentTags)
-            if (s.StartsWith("bg"))
-                isTransition = true;
-
         TextBlock block = new TextBlock(text);
-        
-        if (isTransition)
-            StartCoroutine(DelayInvoke(block));
-        else 
             StoryEvents.i.onBlockUpdate.Invoke(block);
         
     }
@@ -87,6 +72,12 @@ public class StoryManager : MonoBehaviour
     {
         _waitingForChoice = true;
         _storyDisplay.DisplayOptions(_story.currentChoices);
+    }
+
+    private IEnumerator DelayStart()
+    {
+        yield return new WaitForEndOfFrame();
+        Next();
     }
 
     private IEnumerator DelayInvoke(TextBlock block)

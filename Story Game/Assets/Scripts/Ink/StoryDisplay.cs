@@ -18,13 +18,6 @@ public class StoryDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _textPrefab;
 	[SerializeField] private Button _buttonPrefab;
 	
-	[HideInInspector]
-	public ChoiceMade ButtonClicked;
-
-	private void Awake()
-	{
-		if (ButtonClicked == null) ButtonClicked = new ChoiceMade();
-	}
 
 	private void Start()
 	{
@@ -48,7 +41,7 @@ public class StoryDisplay : MonoBehaviour
 		foreach (Choice choice in choices)
 		{
 			Button button = CreateChoiceView (choice.text.Trim ());
-			button.onClick.AddListener(() => {ButtonClicked.Invoke(choice);});
+			button.onClick.AddListener(() => {StoryEvents.i.onChoiceMade.Invoke(choice);});
 			if (i == 0) EventSystem.current.SetSelectedGameObject(button.gameObject);
 			i++;
 		}

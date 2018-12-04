@@ -47,6 +47,7 @@ Your mom is standing on the porch.
 = scene 
 #chl: Dana #chr: Mom #chl: Kimmy
 Dana:           Mom! Look! God sent me a baby!
+#cp: Mom
 Mom:            ...Excuse me?
 Dana:           Her name is Kimmy!
 Kimmy:         ...
@@ -68,7 +69,7 @@ Kimmy:          Ferry Street... I untied myself from the porch so I could go for
 -> Kimmy_house_intro
 
 = Kimmy_house_intro
-#bg; ferry st 
+#bg: ferry st 
 #chl: Dana #chl: Kimmy
 Kimmy's house is on a quiet street next to a toy store.
 * [Knock]
@@ -100,7 +101,7 @@ Dana:           Bye bye.
 -> pickup_Kimmy
 
 = pickup_Kimmy
-#bg; ferry st 
+#bg: ferry st 
 #chl: Dana #chr: Kimmy
 Dana:           Mornin’ Kimmy! I’m here to babysit, like I promised! Is your mom around?
 Kimmy:          My mommy’s not inside. She left already.
@@ -128,7 +129,7 @@ Kimmy:          ...!
 -> map
 
 === map ===
-#bg; map #chclear:
+#bg: map #chclear:
 Where to next?
 + [Downtown] 
 -> downtown
@@ -138,7 +139,7 @@ Where to next?
 -> Done
 
 === ferry_street ===
-#bg; ferry st #chl: Dean #chr: Donna
+#bg: ferry st #chl: Dean #chr: Donna
 Dean's store is open. Donna sits on the sidewalk.
 + [Talk to Donna] -> donna
 + [Enter the store] -> store
@@ -271,7 +272,7 @@ Kimmy:          …Maybe.
 -> choice
 
 === downtown ===
-#bg; downtown #chl: Jimmy #chr: Amber #chr: Anthony
+#bg: downtown #chl: Jimmy #chr: Amber #chr: Anthony
 Jimmy is reading a comic book. Anthony and his sister are hanging out.
 + [Talk to Jimmy] 
 -> jimmy

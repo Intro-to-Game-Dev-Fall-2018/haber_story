@@ -1640,10 +1640,6 @@ MonoBehaviour:
     type: 2}
   _buttonPrefab: {fileID: 114807036985636872, guid: f32b30fa7f5ff4240a698178aa2a27ec,
     type: 2}
-  ButtonClicked:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: ChoiceMade, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &2120470517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,8 +1684,7 @@ MonoBehaviour:
   onChoiceMade:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ChoiceMade, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onTagUpdate:
     m_PersistentCalls:
       m_Calls: []

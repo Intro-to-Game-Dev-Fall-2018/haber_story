@@ -46,19 +46,17 @@ public class StoryEvents : MonoBehaviour
     public static StoryEvents i;
 
     [HideInInspector] public BlockUpdateEvent onBlockUpdate;
-    [HideInInspector] public UnityEvent onChoiceMade;
+    [HideInInspector] public ChoiceMade onChoiceMade;
     [HideInInspector] public TagUpdateEvent onTagUpdate;
 
     private void Awake()
     {
         onBlockUpdate = new BlockUpdateEvent();
-        onChoiceMade = new UnityEvent();
+        onChoiceMade = new ChoiceMade();
         onTagUpdate = new TagUpdateEvent();
         
         if (i == null) i = this;
-        else
-        {
-            print("MULTIPLE STORY EVENT SYSTEMS IN USE");
-        }
+        else print("MULTIPLE STORY EVENT SYSTEMS IN USE");
+        
     }
 }
