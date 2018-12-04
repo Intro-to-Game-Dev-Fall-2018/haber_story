@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characters:
   - Name: Dana
-    Sprite: {fileID: 21300000, guid: 2d44e9366fac943c19ad97714ca97af6, type: 3}
+    Sprite: {fileID: 21300000, guid: 82d0cd803f1174f1db682ea337d37015, type: 3}
   - Name: Kimmy
-    Sprite: {fileID: 21300000, guid: 68eb91ec806604c2aae254df2eb9205f, type: 3}
+    Sprite: {fileID: 21300000, guid: 9d3fa20edbc3e471cba5f98ab1f8614a, type: 3}
   - Name: Mom
     Sprite: {fileID: 21300000, guid: a314ef11f783b4c459dc10018b92a5cb, type: 3}
   - Name: Donna

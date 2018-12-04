@@ -67,9 +67,19 @@ public class StoryManager : MonoBehaviour
         
         if (_story.currentTags.Count > 0)
             StoryEvents.i.onTagUpdate.Invoke(_story.currentTags);
+
+        bool isTransition = false;
         
+        foreach (string s in _story.currentTags)
+            if (s.StartsWith("bg"))
+                isTransition = true;
+
         TextBlock block = new TextBlock(text);
-        StoryEvents.i.onBlockUpdate.Invoke(block);
+        
+        if (isTransition)
+            StartCoroutine(DelayInvoke(block));
+        else 
+            StoryEvents.i.onBlockUpdate.Invoke(block);
         
     }
 
@@ -79,11 +89,11 @@ public class StoryManager : MonoBehaviour
         _storyDisplay.DisplayOptions(_story.currentChoices);
     }
 
-    private IEnumerator DelayNextCall()
+    private IEnumerator DelayInvoke(TextBlock block)
     {
         _waitingForChoice = true;
         yield return new WaitForSeconds(Loader.i.Settings.FadeBlackTime);
+        StoryEvents.i.onBlockUpdate.Invoke(block);
         _waitingForChoice = false;
-        Next();
     }
 }
