@@ -57,6 +57,5 @@ public class StoryEvents : MonoBehaviour
         
         if (i == null) i = this;
         else print("MULTIPLE STORY EVENT SYSTEMS IN USE");
-        
     }
 }

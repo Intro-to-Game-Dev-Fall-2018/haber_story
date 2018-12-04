@@ -36,8 +36,6 @@ public class StoryDisplay : MonoBehaviour
 	{
 		int i = 0;
 
-//		UI.GetComponentInChildren<TMP_Text>().text += "\n";
-		
 		foreach (Choice choice in choices)
 		{
 			Button button = CreateChoiceView (choice.text.Trim ());

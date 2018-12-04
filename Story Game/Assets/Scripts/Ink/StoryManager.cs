@@ -19,7 +19,6 @@ public class StoryManager : MonoBehaviour
         _story = new Story(Loader.i.inkJSONAsset.text);
         StoryEvents.i.onChoiceMade.AddListener(MakeChoice);
         StartCoroutine(DelayStart());
-//        Next();
     }
 
     private void Update()
@@ -30,9 +29,8 @@ public class StoryManager : MonoBehaviour
 
     private void MakeChoice(Choice choice)
     {
-        _waitingForChoice = false;
         _story.ChooseChoiceIndex(choice.index);
-//        StoryEvents.i.onChoiceMade.Invoke();
+        _waitingForChoice = false;
         Next();
     }
 
@@ -80,11 +78,4 @@ public class StoryManager : MonoBehaviour
         Next();
     }
 
-    private IEnumerator DelayInvoke(TextBlock block)
-    {
-        _waitingForChoice = true;
-        yield return new WaitForSeconds(Loader.i.Settings.FadeBlackTime);
-        StoryEvents.i.onBlockUpdate.Invoke(block);
-        _waitingForChoice = false;
-    }
 }

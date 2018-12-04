@@ -426,6 +426,7 @@ Anthony:            I’ll let you know when the season starts.
 -> choice
 
 === playfunction ===
+What do you wanna play?
 * {dice} [Play dice]
 * {chalk} [Play Hopskotch]
 * {jumprope} [Play Jumprope]
