@@ -57,6 +57,7 @@ public class CharacterPanel : MonoBehaviour
 		}
 	}
 
+
 	private void Clear()
 	{
 		foreach (Transform child in _left.transform)

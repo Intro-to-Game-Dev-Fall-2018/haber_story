@@ -32,8 +32,8 @@ public class Loader : MonoBehaviour
 
 	private void Start()
 	{
-		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;
+//		Cursor.visible = false;
+//		Cursor.lockState = CursorLockMode.Locked;
 
 		if (!load) return;
 		
@@ -41,7 +41,7 @@ public class Loader : MonoBehaviour
 		StartCoroutine(Load("Music"));
 	}
 	
-	private IEnumerator Load(string name)
+	private static IEnumerator Load(string name)
 	{
 		AsyncOperation operation = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
 		while (!operation.isDone)

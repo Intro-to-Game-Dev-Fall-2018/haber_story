@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Ink.Runtime;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private StoryDisplay _storyDisplay;
 
     private bool _waitingForChoice;
-    
     private float lastMove;
 
     private void Start()
@@ -44,7 +44,6 @@ public class StoryManager : MonoBehaviour
     private void Next()
     {
         lastMove = Time.time;
-        
         if (_waitingForChoice) return;
         
         if (_story.canContinue)
@@ -54,6 +53,7 @@ public class StoryManager : MonoBehaviour
         else
             _story.ResetState();
     }
+
 
     private void NextText()
     {
@@ -65,11 +65,12 @@ public class StoryManager : MonoBehaviour
             return;
         }
         
+        if (_story.currentTags.Count > 0)
+            StoryEvents.i.onTagUpdate.Invoke(_story.currentTags);
+        
         TextBlock block = new TextBlock(text);
         StoryEvents.i.onBlockUpdate.Invoke(block);
         
-        if (_story.currentTags.Count > 0)
-            StoryEvents.i.onTagUpdate.Invoke(_story.currentTags);
     }
 
     private void NextOptions()

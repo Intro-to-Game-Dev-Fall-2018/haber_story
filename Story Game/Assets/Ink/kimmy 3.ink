@@ -37,7 +37,7 @@ VAR cardsCost = 7
 
 === intro_scene ===
 #bg: home
-Late 1960s, West Philadelphia. 
+Late 1960s, Massachusetts. 
 Your mom is standing on the porch.
 + [Talk to Mom]
 -> scene 
