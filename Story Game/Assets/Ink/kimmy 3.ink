@@ -36,7 +36,8 @@ VAR cardsCost = 7
 -> intro_scene
 
 === intro_scene ===
-#bg: home
+#bg: home 
+#chc:
 Late 1960s, Massachusetts. 
 Your mom is standing on the porch.
 + [Talk to Mom]
@@ -47,7 +48,6 @@ Your mom is standing on the porch.
 = scene 
 #chl: Dana #chr: Mom #chl: Kimmy
 Dana:           Mom! Look! God sent me a baby!
-#cp: Mom
 Mom:            ...Excuse me?
 Dana:           Her name is Kimmy!
 Kimmy:         ...
@@ -70,10 +70,10 @@ Kimmy:          Ferry Street... I untied myself from the porch so I could go for
 
 = Kimmy_house_intro
 #bg: ferry st 
-#chl: Dana #chl: Kimmy
+#chc: #chl: Dana #chl: Kimmy
 Kimmy's house is on a quiet street next to a toy store.
 * [Knock]
-#chl: Dana #chl: Kimmy #chr: Mrs.Munro
+#chr: Mrs.Munro
 - Kimmy's mother opens the door.
 Mrs.Munro:            Thank you for finding Kimmy and walking her home. What's your name, dear?
 * [I’m Dana…]
@@ -102,7 +102,7 @@ Dana:           Bye bye.
 
 = pickup_Kimmy
 #bg: ferry st 
-#chl: Dana #chr: Kimmy
+#chc: #chl: Dana #chr: Kimmy
 Dana:           Mornin’ Kimmy! I’m here to babysit, like I promised! Is your mom around?
 Kimmy:          My mommy’s not inside. She left already.
 Dana:           Oh, ok… Um, well… Is there anything you’d like to do today, Kimmy?
@@ -139,7 +139,8 @@ Where to next?
 -> Done
 
 === ferry_street ===
-#bg: ferry st #chl: Dean #chr: Donna
+#bg: ferry st 
+#chc: #chl: Dean #chr: Donna
 Dean's store is open. Donna sits on the sidewalk.
 + [Talk to Donna] -> donna
 + [Enter the store] -> store
@@ -147,7 +148,7 @@ Dean's store is open. Donna sits on the sidewalk.
 -> map
 
 === store
-#chl: Dana #chl: Kimmy #chr: Dean
+#chc: #chl: Dana #chl: Kimmy #chr: Dean
 Dean:           Hey, Kid.
 Dana:           Hi, Dean.
 {not intro:          -> intro}
@@ -212,7 +213,7 @@ Dean:           Bye bye girls. Have fun.
 -> ferry_street
 
 === donna
-#chl: Dana #chl: Kimmy #chr: Donna
+#chc: #chl: Dana #chl: Kimmy #chr: Donna
 Dana:           Hi Donna.
 {not intro:-> intro}
 Donna:          Hi Dana, Hi Kimmy
@@ -272,7 +273,8 @@ Kimmy:          …Maybe.
 -> choice
 
 === downtown ===
-#bg: downtown #chl: Jimmy #chr: Amber #chr: Anthony
+#bg: downtown 
+#chc: #chl: Jimmy #chr: Amber #chr: Anthony
 Jimmy is reading a comic book. Anthony and his sister are hanging out.
 + [Talk to Jimmy] 
 -> jimmy
@@ -282,6 +284,7 @@ Jimmy is reading a comic book. Anthony and his sister are hanging out.
 -> map
 
 === jimmy
+#chc:
 #chl: Dana #chl: Kimmy #chr: Jimmy
 Jimmy:          ...Hi Kimmy.
 Kimmy:          Hi Jimmy…
@@ -359,7 +362,7 @@ Dana:           Haha, you two...
 ->choice
 
 === anthonyamber
-#chl: Dana #chl: Kimmy #chr: Amber #chr: Anthony
+#chc: #chl: Dana #chl: Kimmy #chr: Amber #chr: Anthony
 Dana:           Hey Anthony.
 Anthony:        Hi Dana.
 {not intro: -> intro}

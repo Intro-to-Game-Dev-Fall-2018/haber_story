@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,25 +25,19 @@ public class CharacterPanel : MonoBehaviour
 
 	private void Fill(IEnumerable<string> tags)
 	{
-		var activeCharacters = new List<string>();
-		
 		foreach (string s in tags)
 		{
 			if (!s.StartsWith("ch")) continue;
 			
-			if (s[2]=='c')
+			switch (s[2])
 			{
-				Clear();
-				return;
+				case 'c': Clear();
+					break;
+				case 'l':
+				case 'r': Place(s);
+					break;
 			}
-
-			if (activeCharacters.Count == 0) Clear();
-			else if (activeCharacters.Contains(s)) continue;
-			
-			activeCharacters.Add(s);
-			Place(s);
 		}
-		
 		RefreshDisplay();
 	}
 

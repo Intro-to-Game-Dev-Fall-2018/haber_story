@@ -11,7 +11,6 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private StoryDisplay _storyDisplay;
 
     private bool _waitingForChoice;
-    private float lastMove;
 
     private void Start()
     {
@@ -21,22 +20,9 @@ public class StoryManager : MonoBehaviour
         StartCoroutine(DelayStart());
     }
 
-    private void Update()
-    {
-        if (Input.GetAxis("Horizontal") > .1 && Time.time > lastMove + Loader.i.Settings.DelayInput)
-            Next();
-    }
 
-    private void MakeChoice(Choice choice)
+    public void Next()
     {
-        _story.ChooseChoiceIndex(choice.index);
-        _waitingForChoice = false;
-        Next();
-    }
-
-    private void Next()
-    {
-        lastMove = Time.time;
         if (_waitingForChoice) return;
         
         if (_story.canContinue)
@@ -70,9 +56,17 @@ public class StoryManager : MonoBehaviour
         _waitingForChoice = true;
         _storyDisplay.DisplayOptions(_story.currentChoices);
     }
+    
+    private void MakeChoice(Choice choice)
+    {
+        _story.ChooseChoiceIndex(choice.index);
+        _waitingForChoice = false;
+        Next();
+    }
 
     private IEnumerator DelayStart()
     {
+        yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         Next();
     }
