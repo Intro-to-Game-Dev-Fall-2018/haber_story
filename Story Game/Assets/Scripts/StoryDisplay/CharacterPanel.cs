@@ -18,14 +18,10 @@ public class CharacterPanel : MonoBehaviour
 	
 	private void FillCheck(List<string> tags)
 	{
-		foreach (string s in tags)
-			if (s.StartsWith("bg"))
-			{
-				StartCoroutine(DelayedFill(tags));
-				return;
-			}
-		
-		Fill(tags);
+		if (StoryEvents.i.Transition)
+			StartCoroutine(DelayedFill(tags));
+		else
+			Fill(tags);
 	}
 
 	private void Fill(IEnumerable<string> tags)

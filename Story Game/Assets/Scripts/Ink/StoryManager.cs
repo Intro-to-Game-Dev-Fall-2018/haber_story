@@ -59,11 +59,10 @@ public class StoryManager : MonoBehaviour
         }
         
         if (_story.currentTags.Count > 0)
-            StoryEvents.i.onTagUpdate.Invoke(_story.currentTags);
+            StoryEvents.i.InvokeTagUpdate(_story.currentTags);
 
         TextBlock block = new TextBlock(text);
             StoryEvents.i.onBlockUpdate.Invoke(block);
-        
     }
 
     private void NextOptions()

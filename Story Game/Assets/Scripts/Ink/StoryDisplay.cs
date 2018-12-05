@@ -8,8 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[Serializable]
-public class ChoiceMade : UnityEvent<Choice> {}
+
 
 public class StoryDisplay : MonoBehaviour
 {
@@ -17,19 +16,27 @@ public class StoryDisplay : MonoBehaviour
 	[SerializeField] private Canvas UI;
 	[SerializeField] private TextMeshProUGUI _textPrefab;
 	[SerializeField] private Button _buttonPrefab;
-	
 
+	private bool _transition;
+	
 	private void Start()
 	{
 		StoryEvents.i.onBlockUpdate.AddListener(Display);
+		StoryEvents.i.onTagUpdate.AddListener(Tag);
+	}
+
+	private void Tag(List<string> list)
+	{
+		if (StoryEvents.i.Transition)
+			_transition = true;
 	}
 
 	public void Display(TextBlock block)
 	{
-		RemoveChildren();
-		TextMeshProUGUI tmp = Instantiate(_textPrefab, UI.transform);
-		tmp.text = block.Text;
-		StartCoroutine(Typewriter(tmp));
+		float delay = _transition ? Loader.i.Settings.FadeBlackTime : 0;
+		_transition = false;
+
+		StartCoroutine(Typewriter(block,delay));
 	}
 
 	public void DisplayOptions(List<Choice> choices)
@@ -58,8 +65,13 @@ public class StoryDisplay : MonoBehaviour
 			Destroy(child.gameObject);
 	}
 
-	private static IEnumerator Typewriter(TMP_Text tmp)
+	private IEnumerator Typewriter(TextBlock block,float delay)
 	{
+		yield return new WaitForSeconds(delay);
+		RemoveChildren();
+		TextMeshProUGUI tmp = Instantiate(_textPrefab, UI.transform);
+		tmp.text = block.Text;
+		
 		int chars = 0;
 		while (chars < tmp.text.Length)
 		{

@@ -16,6 +16,8 @@ public class Background : MonoBehaviour
 
     private void CheckUpdate(List<string> list)
     {
+        if (!StoryEvents.i.Transition) return;
+        
         foreach (string s in list)
             if (s.StartsWith("bg:"))
                 Transition(s.Substring(3).Trim());

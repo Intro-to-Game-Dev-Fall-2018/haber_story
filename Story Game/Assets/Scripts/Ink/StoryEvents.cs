@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,17 +28,17 @@ public class TextBlock
 }
 
 [Serializable]
-public class StringUnityEvent : UnityEvent<string>
-{
-}
-
-[Serializable]
 public class BlockUpdateEvent : UnityEvent<TextBlock>
 {
 }
 
 [Serializable]
 public class TagUpdateEvent : UnityEvent<List<string>>
+{
+}
+
+[Serializable]
+public class ChoiceMade : UnityEvent<Choice>
 {
 }
 
@@ -49,13 +50,25 @@ public class StoryEvents : MonoBehaviour
     [HideInInspector] public ChoiceMade onChoiceMade;
     [HideInInspector] public TagUpdateEvent onTagUpdate;
 
+    public bool Transition { get; private set; }
+
     private void Awake()
     {
         onBlockUpdate = new BlockUpdateEvent();
         onChoiceMade = new ChoiceMade();
         onTagUpdate = new TagUpdateEvent();
-        
+
         if (i == null) i = this;
         else print("MULTIPLE STORY EVENT SYSTEMS IN USE");
+    }
+
+    public void InvokeTagUpdate(List<string> list)
+    {
+        Transition = false;
+        foreach (string s in list)
+            if (s.StartsWith("bg:"))
+                Transition = true;
+
+        onTagUpdate.Invoke(list);
     }
 }
