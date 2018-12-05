@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class Journal : MonoBehaviour
 	[SerializeField] private Button _closeJournal;
 	[SerializeField] private CanvasGroup _canvasGroup;
 	[SerializeField] private Transform _content;
+	[SerializeField] private ScrollRect _scrollRect;
 	
 	[Header("Prefabs")]
 	[SerializeField] private TextMeshProUGUI _textPrefab;
@@ -47,6 +49,8 @@ public class Journal : MonoBehaviour
 			TextMeshProUGUI tmp = Instantiate(_textPrefab, _content);
 			tmp.text = s;
 		}
+
+		StartCoroutine(NormToBottom());
 		ShowCanvas();
 	}
 
@@ -71,5 +75,11 @@ public class Journal : MonoBehaviour
 		_canvasGroup.blocksRaycasts = true;
 		_canvasGroup.interactable = true;
 	}
-	
+
+	private IEnumerator NormToBottom()
+	{
+		yield return new WaitForEndOfFrame();
+		_scrollRect.verticalNormalizedPosition = 0;
+
+	}
 }

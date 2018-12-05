@@ -39,6 +39,8 @@ public class StoryDisplay : MonoBehaviour
 
 	public void DisplayOptions(List<Choice> choices)
 	{
+		RemoveChildren();
+		
 		int i = 0;
 
 		foreach (Choice choice in choices)
@@ -71,7 +73,9 @@ public class StoryDisplay : MonoBehaviour
 		tmp.text = block.Text;
 		
 		int chars = 0;
-		while (chars < tmp.text.Length)
+		tmp.alignment = TextAlignmentOptions.Top;
+			
+		while (chars < tmp.textInfo.characterCount)
 		{
 			tmp.maxVisibleCharacters = chars++;
 			yield return new WaitForSeconds(Loader.i.Settings.TimePerLetter);

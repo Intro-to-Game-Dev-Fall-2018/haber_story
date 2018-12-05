@@ -34,6 +34,8 @@ public class StoryManager : MonoBehaviour
     public void FastForward()
     {
         if (!_story.canContinue) return;
+        
+        StopCoroutine(FF());
         StartCoroutine(FF());
     }
     
