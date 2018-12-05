@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using Ink.Runtime;
 using UnityEngine;
 
@@ -20,7 +19,6 @@ public class StoryManager : MonoBehaviour
         StartCoroutine(DelayStart());
     }
 
-
     public void Next()
     {
         if (_waitingForChoice) return;
@@ -32,8 +30,14 @@ public class StoryManager : MonoBehaviour
         else
             _story.ResetState();
     }
-
-
+    
+    public void FastForward()
+    {
+        if (!_story.canContinue) return;
+        StartCoroutine(FF());
+    }
+    
+    
     private void NextText()
     {
         string text = _story.Continue();
@@ -68,6 +72,17 @@ public class StoryManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
+        Next();
+    }
+
+    private IEnumerator FF()
+    {
+        while (_story.canContinue)
+        {
+            Next();
+            yield return new WaitForSeconds(Loader.i.Settings.TimePerLetter * _story.currentText.Length);
+        }
+        
         Next();
     }
 

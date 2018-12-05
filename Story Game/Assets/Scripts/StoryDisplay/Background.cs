@@ -29,6 +29,7 @@ public class Background : MonoBehaviour
             .OnComplete(()=>
             {
                 _background.sprite = Loader.i.Backgrounds.GetCharacter(bg).Sprite;
+                _background.SetNativeSize();
                 _uiCover.DOFade(0, Loader.i.Settings.FadeInTime).SetEase(Ease.Linear);
             });
     }

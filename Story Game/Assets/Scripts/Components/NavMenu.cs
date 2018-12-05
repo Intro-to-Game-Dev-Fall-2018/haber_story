@@ -19,7 +19,7 @@ public class NavMenu : MonoBehaviour
 
 	private void FastForward()
 	{
-		
+		StoryManager.i.FastForward();
 	}
 	
 }

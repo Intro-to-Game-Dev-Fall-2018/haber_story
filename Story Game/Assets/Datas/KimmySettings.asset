@@ -14,3 +14,4 @@ MonoBehaviour:
   FadeBlackTime: 2
   FadeInTime: 2
   DelayInput: 0.8
+  TimePerLetter: 0.03

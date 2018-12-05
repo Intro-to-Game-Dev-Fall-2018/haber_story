@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class KeyboardStoryController : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class KeyboardStoryController : MonoBehaviour
 	
 	private void Update()
 	{
-		if (Input.GetAxis("Horizontal") > .1 && Time.time > lastMove + Loader.i.Settings.DelayInput)
+		if (Input.GetButtonDown("Next") && Time.time > lastMove + Loader.i.Settings.DelayInput)
 		{
 			lastMove = Time.time;
 			StoryManager.i.Next();

@@ -74,9 +74,10 @@ public class StoryDisplay : MonoBehaviour
 		while (chars < tmp.text.Length)
 		{
 			tmp.maxVisibleCharacters = chars++;
-			yield return new WaitForSeconds(.001f);
+			yield return new WaitForSeconds(Loader.i.Settings.TimePerLetter);
 		}
 
 		tmp.maxVisibleCharacters = tmp.text.Length;
+		StoryEvents.i.onTypeComplete.Invoke();
 	} 
 }

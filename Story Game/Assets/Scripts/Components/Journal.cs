@@ -16,7 +16,7 @@ public class Journal : MonoBehaviour
 
 	private void AddText(TextBlock block)
 	{
-		_entries.Push(block.Name+":"+block.Text);
+		_entries.Push(block.Name+": "+block.Text);
 	}
 
 	private void AddChoice(Choice choice)
