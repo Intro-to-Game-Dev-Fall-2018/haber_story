@@ -6,16 +6,19 @@ public class StoryManager : MonoBehaviour
 {
     public static StoryManager i;
 
-    private Story _story;
-    [SerializeField] private StoryDisplay _storyDisplay;
+    public Story Story { get; private set; }
 
     private bool _waitingForChoice;
     private bool isFastForwarding;
 
-    private void Start()
+    private void Awake()
     {
         if (i == null) i = this;
-        _story = new Story(Loader.i.inkJSONAsset.text);
+        Story = new Story(Loader.i.inkJSONAsset.text);
+    }
+
+    private void Start()
+    {
         StoryEvents.i.onChoiceMade.AddListener(MakeChoice);
         StartCoroutine(DelayStart());
     }
@@ -24,17 +27,17 @@ public class StoryManager : MonoBehaviour
     {
         if (_waitingForChoice) return;
         
-        if (_story.canContinue)
+        if (Story.canContinue)
             NextText();
-        else if (_story.currentChoices.Count > 0)
+        else if (Story.currentChoices.Count > 0)
             NextOptions();
         else
-            _story.ResetState();
+            Story.ResetState();
     }
     
     public void FastForward()
     {
-        if (!_story.canContinue) return;
+        if (!Story.canContinue) return;
         if (isFastForwarding) return;
         StartCoroutine(FF());
     }
@@ -47,7 +50,7 @@ public class StoryManager : MonoBehaviour
     
     private void NextText()
     {
-        string text = _story.Continue();
+        string text = Story.Continue();
 
         if (text.Trim().Length == 0)
         {
@@ -55,8 +58,8 @@ public class StoryManager : MonoBehaviour
             return;
         }
         
-        if (_story.currentTags.Count > 0)
-            StoryEvents.i.InvokeTagUpdate(_story.currentTags);
+        if (Story.currentTags.Count > 0)
+            StoryEvents.i.InvokeTagUpdate(Story.currentTags);
 
         TextBlock block = new TextBlock(text);
             StoryEvents.i.onBlockUpdate.Invoke(block);
@@ -65,12 +68,19 @@ public class StoryManager : MonoBehaviour
     private void NextOptions()
     {
         _waitingForChoice = true;
-        _storyDisplay.DisplayOptions(_story.currentChoices);
+        StoryEvents.i.onChoiceUpdate.Invoke(Story.currentChoices);
+    }
+    
+    public void MakeChoice(int choice)
+    {
+        Story.ChooseChoiceIndex(choice);
+        _waitingForChoice = false;
+        Next();
     }
     
     private void MakeChoice(Choice choice)
     {
-        _story.ChooseChoiceIndex(choice.index);
+        Story.ChooseChoiceIndex(choice.index);
         _waitingForChoice = false;
         Next();
     }
@@ -85,11 +95,11 @@ public class StoryManager : MonoBehaviour
     private IEnumerator FF()
     {
         isFastForwarding = true;
-        while (_story.canContinue)
+        while (Story.canContinue)
         {
             if (!isFastForwarding) yield break;
             Next();
-            yield return new WaitForSeconds(Loader.i.Settings.TimePerLetter * _story.currentText.Length);
+            yield return new WaitForSeconds(Loader.i.Settings.TimePerLetter * Story.currentText.Length);
         }
         
         if (isFastForwarding) Next();

@@ -132,8 +132,10 @@ Kimmy:          ...!
 #ui:map
 Where to next?
 + [Downtown] 
+#ui:
 -> downtown
 + [Ferry st.] 
+#ui:
 -> ferry_street
 + {downtown and ferry_street} [End Day] 
 -> Done
@@ -437,7 +439,7 @@ What do you wanna play?
 * {jumprope} [Play Jumprope]
 * {cards} [Play Poker]
 + [Patty cake]
-- Wow! such fun.
+- Wow!
 ->->
 
 === Done

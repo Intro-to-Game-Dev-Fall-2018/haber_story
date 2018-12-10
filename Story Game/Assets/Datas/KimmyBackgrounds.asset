@@ -17,7 +17,7 @@ MonoBehaviour:
   - Name: ferry st
     Sprite: {fileID: 21300000, guid: 4ba821178de5e4418a6dd845b6a516bd, type: 3}
   - Name: map
-    Sprite: {fileID: 21300000, guid: 51172a045e68740f6886415602cc1820, type: 3}
+    Sprite: {fileID: 21300000, guid: 0ceb87935a9e0412599081df4f1cf9e5, type: 3}
   - Name: downtown
     Sprite: {fileID: 21300000, guid: 441fec67a04184147a0844294c7131a1, type: 3}
   unknown:

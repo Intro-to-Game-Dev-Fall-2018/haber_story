@@ -42,6 +42,11 @@ public class ChoiceMade : UnityEvent<Choice>
 {
 }
 
+[Serializable]
+public class ChoiceUpdateEvent : UnityEvent<List<Choice>>
+{
+}
+
 public class StoryEvents : MonoBehaviour
 {
     public static StoryEvents i;
@@ -49,6 +54,7 @@ public class StoryEvents : MonoBehaviour
     public BlockUpdateEvent onBlockUpdate {get; private set;}
     public ChoiceMade onChoiceMade {get; private set;}
     public TagUpdateEvent onTagUpdate {get; private set;}
+    public ChoiceUpdateEvent onChoiceUpdate { get; private set; }
 
     public bool Transition { get; private set; }
 
@@ -57,6 +63,7 @@ public class StoryEvents : MonoBehaviour
         onBlockUpdate = new BlockUpdateEvent();
         onChoiceMade = new ChoiceMade();
         onTagUpdate = new TagUpdateEvent();
+        onChoiceUpdate = new ChoiceUpdateEvent();
 
         if (i == null) i = this;
         else print("MULTIPLE STORY EVENT SYSTEMS IN USE");

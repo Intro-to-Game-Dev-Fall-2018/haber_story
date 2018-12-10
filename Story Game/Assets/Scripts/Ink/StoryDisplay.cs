@@ -19,6 +19,7 @@ public class StoryDisplay : MonoBehaviour
 	{
 		StoryEvents.i.onBlockUpdate.AddListener(Display);
 		StoryEvents.i.onTagUpdate.AddListener(Tag);
+		StoryEvents.i.onChoiceUpdate.AddListener(DisplayOptions);
 	}
 
 	private void Tag(List<string> list)
@@ -39,14 +40,10 @@ public class StoryDisplay : MonoBehaviour
 	{
 		RemoveChildren();
 		
-		int i = 0;
-
 		foreach (Choice choice in choices)
 		{
 			Button button = CreateChoiceView (choice.text.Trim ());
 			button.onClick.AddListener(() => {StoryEvents.i.onChoiceMade.Invoke(choice);});
-			if (i == 0) EventSystem.current.SetSelectedGameObject(button.gameObject);
-			i++;
 		}
 	}
 

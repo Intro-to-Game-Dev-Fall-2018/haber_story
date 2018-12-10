@@ -36,7 +36,7 @@ public class UiSwitcher : MonoBehaviour
 					case "shop": 
 						ShowCanvas(_shop);
 						break;
-					case "map" : 
+					case "map" :
 						ShowCanvas(_map);
 						break;
 					default: 
@@ -59,6 +59,7 @@ public class UiSwitcher : MonoBehaviour
 		HideCanvas(_map);
 	}
 	
+		
 	private static void HideCanvas(CanvasGroup canvas)
 	{
 		canvas.alpha = 0f;
@@ -72,5 +73,5 @@ public class UiSwitcher : MonoBehaviour
 		canvas.blocksRaycasts = true;
 		canvas.interactable = true;
 	}
-
+	
 }
