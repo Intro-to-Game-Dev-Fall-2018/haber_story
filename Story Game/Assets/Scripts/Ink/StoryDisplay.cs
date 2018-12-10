@@ -6,8 +6,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-
-
 public class StoryDisplay : MonoBehaviour
 {
 
@@ -82,6 +80,5 @@ public class StoryDisplay : MonoBehaviour
 		}
 
 		tmp.maxVisibleCharacters = tmp.text.Length;
-		StoryEvents.i.onTypeComplete.Invoke();
 	} 
 }

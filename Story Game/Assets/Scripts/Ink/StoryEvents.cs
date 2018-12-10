@@ -49,7 +49,6 @@ public class StoryEvents : MonoBehaviour
     public BlockUpdateEvent onBlockUpdate {get; private set;}
     public ChoiceMade onChoiceMade {get; private set;}
     public TagUpdateEvent onTagUpdate {get; private set;}
-    public UnityEvent onTypeComplete {get; private set;}
 
     public bool Transition { get; private set; }
 
@@ -58,7 +57,6 @@ public class StoryEvents : MonoBehaviour
         onBlockUpdate = new BlockUpdateEvent();
         onChoiceMade = new ChoiceMade();
         onTagUpdate = new TagUpdateEvent();
-        onTypeComplete = new UnityEvent();
 
         if (i == null) i = this;
         else print("MULTIPLE STORY EVENT SYSTEMS IN USE");

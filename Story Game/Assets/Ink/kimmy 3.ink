@@ -63,8 +63,7 @@ Mom:            Kimmy, can you tell me where your parents are?
 Kimmy:          I can go home later if I want…
 Dana:           Well maybe God didn’t send her, but she came out of nowhere! Kimmy, you just… appeared, right? Where did you come from?
 Kimmy:          Ferry Street... I untied myself from the porch so I could go for a walk…
-+[How strange.]
--Mom:           It’s ok dear, why don't you take Kimmy home… you said it’s on Ferry Street? Your parents are probably worried.
+Mom:           It’s ok dear, why don't you take Kimmy home… you said it’s on Ferry Street? Your parents are probably worried.
 * [Head to Kimmy's house]
 -> Kimmy_house_intro
 
@@ -130,6 +129,7 @@ Kimmy:          ...!
 
 === map ===
 #bg: map #chc:
+#ui:map
 Where to next?
 + [Downtown] 
 -> downtown
@@ -158,6 +158,7 @@ Dana:           Hi, Dean.
 -> outro
 
 = shop
+#ui:shop
 {money}c remaining
 * {money > jumpropeCost}[Jump Rope ({jumpropeCost}c) ] -> buyJumprope
 * {money > diceCost} [Dice ({diceCost}c)] -> buyDice
@@ -207,6 +208,7 @@ Dean:           Hah! That’s a long ways off for me. But maybe someday… anywa
 --> shop
 
 = outro
+#ui:c
 Dana:           Thanks, Dean!
 Kimmy:          Thank you Mr. Dean!
 Dean:           Bye bye girls. Have fun.
