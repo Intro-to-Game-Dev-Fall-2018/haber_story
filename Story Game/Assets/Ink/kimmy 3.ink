@@ -33,8 +33,8 @@ VAR cardsCost = 7
 -> choice
 
 */
-// -> intro_scene
--> ferry_street
+-> intro_scene
+// -> ferry_street
 
 === intro_scene ===
 #bg: home 

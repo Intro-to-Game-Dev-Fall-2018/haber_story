@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -18,28 +17,12 @@ public class ShopUI : MonoBehaviour
 			( varName, newValue) => { ObserveMoney((int) newValue); });
 		
 		StoryEvents.i.onChoiceUpdate.AddListener(DisplayOptions);
-//		StoryEvents.i.onTagUpdate.AddListener(TagUpdate);
 	}
 	
 	private void ObserveMoney(int newValue)
 	{
 		_money.text = newValue+" c";
 	}
-
-//	private void TagUpdate(List<string> tags)
-//	{
-//		foreach (string tag in tags)
-//		{
-//			if (tag.StartsWith("bg:"))
-//			{
-//				if (tag.Substring(3).Trim() == "shop")
-//				{
-//					StoryManager.i.FastForward();
-//				}
-//			}
-//		}	
-//	}
-	
 	
 	public void DisplayOptions(List<Choice> choices)
 	{

@@ -58,6 +58,8 @@ public class StoryManager : MonoBehaviour
             return;
         }
         
+        AudioManager.i.Play("Dialogue");
+        
         if (Story.currentTags.Count > 0)
             StoryEvents.i.InvokeTagUpdate(Story.currentTags);
 

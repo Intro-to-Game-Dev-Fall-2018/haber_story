@@ -32,13 +32,10 @@ public class Loader : MonoBehaviour
 
 	private void Start()
 	{
-//		Cursor.visible = false;
-//		Cursor.lockState = CursorLockMode.Locked;
-
 		if (!load) return;
 		
 		StartCoroutine(Load("Menu"));
-		StartCoroutine(Load("Music"));
+		StartCoroutine(Load("Audio"));
 	}
 	
 	private static IEnumerator Load(string name)

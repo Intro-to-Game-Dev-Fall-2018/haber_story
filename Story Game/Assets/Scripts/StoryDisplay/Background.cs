@@ -25,6 +25,7 @@ public class Background : MonoBehaviour
 
     private void Transition(string bg)
     {
+        AudioManager.i.Play("Transition");
         _uiCover.DOFade(1, Loader.i.Settings.FadeBlackTime).SetEase(Ease.Linear)
             .OnComplete(()=>
             {
