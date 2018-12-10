@@ -33,7 +33,8 @@ VAR cardsCost = 7
 -> choice
 
 */
--> intro_scene
+// -> intro_scene
+-> ferry_street
 
 === intro_scene ===
 #bg: home 
@@ -161,7 +162,7 @@ Dana:           Hi, Dean.
 
 = shop
 #ui:shop
-{money}c remaining
+Dean: what can i get for you?
 * {money > jumpropeCost}[Jump Rope ({jumpropeCost}c) ] -> buyJumprope
 * {money > diceCost} [Dice ({diceCost}c)] -> buyDice
 * {money > cardsCost} [Playing cards ({cardsCost}c)] -> buyCards
@@ -171,25 +172,21 @@ Dana:           Hi, Dean.
 = buyChalk
 ~ money -= chalkCost
 ~ chalk++
-Bought chalk
 -> shop
 
 = buyDice
 ~ money -= diceCost
 ~ dice++
-Bought dice
 -> shop
 
 = buyJumprope
 ~ money -= jumpropeCost
 ~ jumprope++
-Bought jump rope
 -> shop
 
 = buyCards 
 ~ money -= cardsCost
 ~cards++
-Bought playing cards
 ->shop
 
 = intro
@@ -198,7 +195,7 @@ Dana:           This is Kimmy. I’m babysitting her now.
 Kimmy:          My mom pays Dana a quarter a day.
 * [That’s right!]Dana:           That’s right! I’m here to buy some things… I mean, I haven’t gotten paid yet. This is my first day. But I have some money saved up!
 -Dean:          Hah, I wish I had that kinda discipline. I blew my budget on fabric last week.
-* [I need to save up money.]Dana:           I need to save up money.For college, you know! My mom would get so mad if I didn’t plan ahead.
+* [I need to save up money.]Dana:           I need to save up money. For college, you know! My mom would get so mad if I didn’t plan ahead.
 Dean:           Hah! Your mom’s got the right idea. I wish I’d saved up for college.
 * [So what did you spend all your money on?]Dana:           So what did you spend all your money on? Your sewing classes?
 Dean:           Nah, that’s over. I’m workin’ on some Halloween costumes for my cousins… and some new pants for myself. You know, gotta apply those skills somehow.
@@ -210,7 +207,7 @@ Dean:           Hah! That’s a long ways off for me. But maybe someday… anywa
 --> shop
 
 = outro
-#ui:c
+#ui:
 Dana:           Thanks, Dean!
 Kimmy:          Thank you Mr. Dean!
 Dean:           Bye bye girls. Have fun.

@@ -34,6 +34,7 @@ public class UiSwitcher : MonoBehaviour
 			switch (s.Substring(3).Trim())
 			{
 					case "shop": 
+						StoryManager.i.Next();
 						ShowCanvas(_shop);
 						break;
 					case "map" :
