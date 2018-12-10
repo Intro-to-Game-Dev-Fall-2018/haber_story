@@ -10,6 +10,7 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private StoryDisplay _storyDisplay;
 
     private bool _waitingForChoice;
+    private bool isFastForwarding;
 
     private void Start()
     {
@@ -34,9 +35,13 @@ public class StoryManager : MonoBehaviour
     public void FastForward()
     {
         if (!_story.canContinue) return;
-        
-        StopCoroutine(FF());
+        if (isFastForwarding) return;
         StartCoroutine(FF());
+    }
+
+    public void StopFastForward()
+    {
+        isFastForwarding = false;
     }
     
     
@@ -79,13 +84,16 @@ public class StoryManager : MonoBehaviour
 
     private IEnumerator FF()
     {
+        isFastForwarding = true;
         while (_story.canContinue)
         {
+            if (!isFastForwarding) yield break;
             Next();
             yield return new WaitForSeconds(Loader.i.Settings.TimePerLetter * _story.currentText.Length);
         }
         
-        Next();
+        if (isFastForwarding) Next();
+        isFastForwarding = false;
     }
 
 }
