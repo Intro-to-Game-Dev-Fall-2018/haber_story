@@ -35,19 +35,6 @@ public class StoryManager : MonoBehaviour
             Story.ResetState();
     }
     
-    public void FastForward()
-    {
-        if (!Story.canContinue) return;
-        if (isFastForwarding) return;
-        StartCoroutine(FF());
-    }
-
-    public void StopFastForward()
-    {
-        isFastForwarding = false;
-    }
-    
-    
     private void NextText()
     {
         string text = Story.Continue();
@@ -92,20 +79,6 @@ public class StoryManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         Next();
-    }
-
-    private IEnumerator FF()
-    {
-        isFastForwarding = true;
-        while (Story.canContinue)
-        {
-            if (!isFastForwarding) yield break;
-            Next();
-            yield return new WaitForSeconds(Loader.i.Settings.TimePerLetter * Story.currentText.Length);
-        }
-        
-        if (isFastForwarding) Next();
-        isFastForwarding = false;
     }
 
 }

@@ -10,23 +10,19 @@ public class PauseMenu : MonoBehaviour {
 	[SerializeField] private CanvasGroup _canvasGroup;
 	
 	private void Start () {
-		_openMenu.onClick.AddListener(ShowCanvas);
-		_closeMenu.onClick.AddListener(HideCanvas);
-		_exitGame.onClick.AddListener(()=>{Loader.i.LoadMenu();});
-		HideCanvas();
-	}
-
-	private void HideCanvas()
-	{
-		_canvasGroup.alpha = 0f;
-		_canvasGroup.blocksRaycasts = false;
-		_canvasGroup.interactable = false;
-	}
-
-	private void ShowCanvas()
-	{
-		_canvasGroup.alpha = 1f;
-		_canvasGroup.blocksRaycasts = true;
-		_canvasGroup.interactable = true;
+		_openMenu.onClick.AddListener(()=>
+		{
+			MyUtilities.ShowCanvasGroup(_canvasGroup);
+		});
+		_closeMenu.onClick.AddListener(()=>
+		{
+			MyUtilities.HideCanvasGroup(_canvasGroup);
+		});
+		_exitGame.onClick.AddListener(() =>
+		{
+			Loader.i.LoadMenu();
+		});
+		
+		MyUtilities.HideCanvasGroup(_canvasGroup);
 	}
 }

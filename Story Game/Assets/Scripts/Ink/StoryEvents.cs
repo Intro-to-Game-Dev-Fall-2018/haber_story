@@ -49,6 +49,7 @@ public class ChoiceUpdateEvent : UnityEvent<List<Choice>>
 
 public class StoryEvents : MonoBehaviour
 {
+
     public static StoryEvents i;
 
     public BlockUpdateEvent onBlockUpdate {get; private set;}

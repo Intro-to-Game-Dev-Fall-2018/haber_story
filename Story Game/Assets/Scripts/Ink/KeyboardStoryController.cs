@@ -2,7 +2,6 @@
 
 public class KeyboardStoryController : MonoBehaviour
 {
-
 	private float lastMove;
 	
 	private void Update()

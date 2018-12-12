@@ -26,7 +26,7 @@ public class Journal : MonoBehaviour
 		
 		_openJournal.onClick.AddListener(OpenJournal);
 		_closeJournal.onClick.AddListener(CloseJournal);
-		HideCanvas();
+		MyUtilities.HideCanvasGroup(_canvasGroup);
 	}
 
 	private void AddText(TextBlock block)
@@ -51,7 +51,7 @@ public class Journal : MonoBehaviour
 		}
 
 		StartCoroutine(NormToBottom());
-		ShowCanvas();
+		MyUtilities.ShowCanvasGroup(_canvasGroup);
 	}
 
 	private void CloseJournal()
@@ -59,23 +59,9 @@ public class Journal : MonoBehaviour
 		foreach (Transform child in _content)
 			Destroy(child.gameObject);	
 		
-		HideCanvas();
+		MyUtilities.HideCanvasGroup(_canvasGroup);
 	}
 	
-	private void HideCanvas()
-	{
-		_canvasGroup.alpha = 0f;
-		_canvasGroup.blocksRaycasts = false;
-		_canvasGroup.interactable = false;
-	}
-
-	private void ShowCanvas()
-	{
-		_canvasGroup.alpha = 1f;
-		_canvasGroup.blocksRaycasts = true;
-		_canvasGroup.interactable = true;
-	}
-
 	private IEnumerator NormToBottom()
 	{
 		yield return new WaitForEndOfFrame();
