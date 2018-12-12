@@ -12,7 +12,7 @@ public class UiSwitcher : MonoBehaviour
 	private void Start () {
 		StoryEvents.i.onTagUpdate.AddListener(OnTagUpdate);
 		HideAll();
-		ShowCanvas(_normal);
+		MyUtilities.ShowCanvasGroup(_normal);
 	}
 	
 	private void OnTagUpdate(List<string> tags)
@@ -35,13 +35,13 @@ public class UiSwitcher : MonoBehaviour
 			{
 					case "shop": 
 						StoryManager.i.Next();
-						ShowCanvas(_shop);
+						MyUtilities.ShowCanvasGroup(_shop);
 						break;
 					case "map" :
-						ShowCanvas(_map);
+						MyUtilities.ShowCanvasGroup(_map);
 						break;
 					default: 
-						ShowCanvas(_normal);
+						MyUtilities.ShowCanvasGroup(_normal);
 						break;
 			}
 		}
@@ -55,24 +55,8 @@ public class UiSwitcher : MonoBehaviour
 
 	private void HideAll()
 	{
-		HideCanvas(_normal);
-		HideCanvas(_shop);
-		HideCanvas(_map);
+		MyUtilities.HideCanvasGroup(_normal);
+		MyUtilities.HideCanvasGroup(_shop);
+		MyUtilities.HideCanvasGroup(_map);
 	}
-	
-		
-	private static void HideCanvas(CanvasGroup canvas)
-	{
-		canvas.alpha = 0f;
-		canvas.blocksRaycasts = false;
-		canvas.interactable = false;
-	}
-
-	private static void ShowCanvas(CanvasGroup canvas)
-	{
-		canvas.alpha = 1f;
-		canvas.blocksRaycasts = true;
-		canvas.interactable = true;
-	}
-	
 }
